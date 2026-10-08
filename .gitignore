@@ -1,4 +1,4 @@
-﻿# Flutter / Dart
+# Flutter / Dart
 .dart_tool/
 .packages
 build/
@@ -18,7 +18,24 @@ build/
 # Archivos temporales
 *.log
 *.tmp
+*.local.json
 
 # Windows
 Thumbs.db
 Desktop.ini
+
+# Node / Supabase CLI
+node_modules/
+supabase/.temp/
+
+# npm
+npm-debug.log*
+
+# Supabase local CLI state
+supabase/.branches/
+
+# DT-02: private experimental artifacts (public corpus/config remain tracked)
+experiments/model_comparison/results/
+experiments/model_comparison/logs/
+experiments/model_comparison/private/
+experiments/model_comparison/*.credentials.json

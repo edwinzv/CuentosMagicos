@@ -1,0 +1,12 @@
+{
+  "compilerOptions": { "strict": true },
+  "fmt": { "include": ["./"], "exclude": ["private/", "results/", "logs/"] },
+  "tasks": {
+    "dry-run": "deno run runner.ts",
+    "budget": "deno run --cached-only runner.ts budget",
+    "test": "deno test --cached-only --allow-read=../../supabase/functions tests/",
+    "fmt-check": "deno fmt --check",
+    "lint": "deno lint",
+    "check": "deno check --no-remote *.ts adapters/*.ts cases/*.ts config/*.ts tests/*.ts"
+  }
+}

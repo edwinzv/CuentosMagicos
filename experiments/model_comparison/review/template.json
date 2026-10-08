@@ -1,0 +1,20 @@
+{
+  "artifactType": "EMPTY_TEMPLATE_NOT_A_REVIEW",
+  "blindId": "",
+  "reviewerId": "",
+  "runId": "",
+  "scores": {
+    "fidelity": null,
+    "history": null,
+    "protagonist": null,
+    "decision": null,
+    "options": null,
+    "ending": null,
+    "primary_appropriate": null,
+    "spanish": null,
+    "resistance": null
+  },
+  "notes": "",
+  "criticalFlags": [],
+  "adjudication": false
+}

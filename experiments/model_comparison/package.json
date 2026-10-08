@@ -1,0 +1,10 @@
+{
+  "name": "dt02-benchmark-experimental-offline",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --permission --allow-fs-read=* --test --test-isolation=none tests/offline_test.ts",
+    "dry-run": "node --permission --allow-fs-read=* runner.ts",
+    "budget": "node --permission --allow-fs-read=* runner.ts budget"
+  }
+}

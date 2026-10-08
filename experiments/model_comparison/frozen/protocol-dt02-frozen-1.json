@@ -1,0 +1,144 @@
+{
+  "artifactType": "protocol_definition_NOT_RESULTS",
+  "provenance": {
+    "executedCommit": null,
+    "status": "definition_only_not_executed; working_tree_uncommitted"
+  },
+  "digest": "2daab00355bb412b48b685c0e2562c184256aa51a35dfa5476b5e73c1421849f",
+  "payload": {
+    "versions": {
+      "protocol_version": "dt02-frozen-1",
+      "corpus_version": "dt02-synthetic-lila-1",
+      "prompt_version": "production-snapshot-1",
+      "schema_version": "production-contract-1",
+      "common_json_format_version": "common-json-format-1",
+      "config_version": "dt02-config-3-frozen",
+      "tariff_version": "dt02-tariffs-approved-frozen-1",
+      "score_version": "dt02-absolute-cuts-approved-frozen-1"
+    },
+    "components": {
+      "versions": "3211ce762e62569ff7d8baeaa6f6dd46c383b3804dda545c664fbe6a2810d63c",
+      "corpus": "a3eee605a27ea5658162b485e86af947834096a879386bf8d7abdc4039013bce",
+      "snapshots": "2e7ea2258e8e709a955b873436dc16567eb2adb1de2ffb140d0cbd520bdcc5b0",
+      "renderedPrompts": "fdffef3489c025434d093c0538424b6be4e6995e271164a39dfe961786d6c145",
+      "commonDirectives": "24bdfb0ba1d9130ea357473179c9f32459d35e7ffdb77b62a749fe141274dc40",
+      "schemas": "effbe16901ab7b1aa81bd599aaf6f3ccc2b99a10668afef1dfa2905278865fe2",
+      "selection": "6e6db9584ae068752410d2ec58123469ffd3e0a2960e2a836c7c15c55757eb1c",
+      "parameters": "c5680ca1fe08cac6d690f9e7b90046d5d83dee0cee7491a475549e32bf37acce",
+      "tariffs": "bbaa26fceddb7419f56ab8efe1d8246af33b4768ea2ea55c257f01171795aaf0",
+      "scoring": "10cf8fe2f18f75dd40a4c81f43f47e26d8966654b6fbf01ee166da42173c0959",
+      "retryPolicy": "42d94b74e58460c41508714445b7a31fae12cd91aa7cc2b945843ef75a6dfeb9",
+      "experimentalDesign": "7cd253f339dc80e27559acb779a6a5ae3df5f7df3340434d58706d3c5547affd",
+      "requests": "81f11a739261547309d6a2ac858642baaf250cb79979b21a9b16297a464079ab"
+    },
+    "models": [
+      {
+        "provider": "G",
+        "name": "Gemini 3.8 Flash",
+        "id": "gemini-3.8-flash",
+        "endpoint": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent",
+        "channel": "Google Developer API",
+        "state": "GA"
+      },
+      {
+        "provider": "O",
+        "name": "GPT-5.6 Sol",
+        "id": "gpt-5.6-sol",
+        "endpoint": "https://api.openai.com/v1/responses",
+        "channel": "OpenAI Responses API",
+        "state": "selected"
+      },
+      {
+        "provider": "A",
+        "name": "Claude Sonnet 5.5",
+        "id": "claude-sonnet-5-5",
+        "endpoint": "https://api.anthropic.com/v1/messages",
+        "channel": "Anthropic Messages API",
+        "state": "active"
+      }
+    ],
+    "parameters": {
+      "maxOutputTokens": 2000,
+      "stream": false,
+      "timeoutMs": 85000,
+      "maxTechnicalRetries": 1,
+      "maxRetryWaitMs": 5000,
+      "orderingSeed": 20261007,
+      "modelSeed": null,
+      "temperature": "omitted",
+      "topK": "omitted",
+      "topP": "omitted",
+      "cache": "no explicit cache; automatic usage recorded",
+      "thinking": { "G": "LOW", "O": "none", "A": "disabled" }
+    },
+    "tariffs": [
+      {
+        "provider": "G",
+        "input": 0.75,
+        "output": 3.75,
+        "cacheRead": null,
+        "cacheWrite": null,
+        "introductoryUntil": "2026-12-31"
+      },
+      {
+        "provider": "O",
+        "input": 4,
+        "output": 20,
+        "cacheRead": null,
+        "cacheWrite": null,
+        "introductoryUntil": "2026-11-21"
+      },
+      {
+        "provider": "A",
+        "input": 2,
+        "output": 10,
+        "cacheRead": null,
+        "cacheWrite": null,
+        "introductoryUntil": null
+      }
+    ],
+    "scoring": {
+      "weights": { "C1": 25, "C2": 25, "C3": 20, "C4": 20, "C5": 10 },
+      "scales": {
+        "percentageLowerBounds": [95, 90, 80, 60],
+        "responseMsUpperBounds": [5000, 10000, 20000, 40000],
+        "usdPerAcceptableUpperBounds": [0.01, 0.02, 0.04, 0.08],
+        "classification": "raw unrounded values, absolute bands, immutable before results",
+        "status": "APPROVED_USER_FROZEN"
+      },
+      "acceptancePolicy": {
+        "minimumManualScore": 3,
+        "manualMaximum": 4,
+        "independentReviewers": 2,
+        "noCriticalFlags": true,
+        "originalOnly": true,
+        "qualityRetries": 0,
+        "wordRanges": {
+          "analysis": [60, 120],
+          "initial": [90, 160],
+          "continuation": [90, 160],
+          "final": [100, 160]
+        },
+        "missingReviews": "pending_review",
+        "missingContent": "not_evaluable",
+        "unknownBilling": "pending_billing"
+      }
+    },
+    "retryPolicy": {
+      "allowed": ["429", "5xx", "timeout", "explicit_transient_transport"],
+      "fallbackWaitMs": 600,
+      "upperWaitMs": 5000,
+      "noSDKRetries": true
+    },
+    "experimentalDesign": {
+      "providers": ["G", "O", "A"],
+      "repetitions": 3,
+      "caseCount": 12,
+      "baseCalls": 108,
+      "orderingSeed": 20261007,
+      "modelSeed": null,
+      "history": "fixed literal canonical inputs; no chaining",
+      "singleActive": true
+    }
+  }
+}
