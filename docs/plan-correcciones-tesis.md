@@ -170,7 +170,9 @@ Las decisiones se refieren al documento y a la investigación prevista; no son i
 - **Acción recomendada:** acordar enfoque, tipo, diseño, unidades de análisis, comparación y límites de inferencia. No adoptar un diseño por semejanza con un antecedente, especialmente Alvarez pendiente.
 - **Tipo de corrección:** decisión metodológica.
 - **Prioridad:** ALTA.
-- **Disponibilidad:** debe esperar decisión del tesista y asesor.
+- **Disponibilidad:** decisión resuelta; edición de la tesis y validación pendientes.
+- **Decisión:** enfoque cuantitativo; tipo de investigación aplicada; alcance descriptivo; diseño preexperimental de un solo grupo. Se aplicarán pretest y postest a los mismos estudiantes, sin grupo de control ni grupo de comparación. La definición de la muestra continúa pendiente en DT-05. La comparación antes-después no permite atribuir causalidad exclusiva a la aplicación; deberán explicitarse las limitaciones del diseño. Este registro no afirma que el pretest se haya aplicado ni constituye aprobación del asesor.
+- **Estado:** DECISIÓN RESUELTA; CORRECCIÓN PENDIENTE DE APLICACIÓN Y VALIDACIÓN.
 
 ### DT-04 — Formulación de mejora frente a cambios
 
@@ -180,7 +182,9 @@ Las decisiones se refieren al documento y a la investigación prevista; no son i
 - **Acción recomendada:** decidir una formulación coherente con DT-03 y distinguir finalidad esperada de resultado demostrado. No modificar automáticamente el título aprobado.
 - **Tipo de corrección:** decisión de formulación y alcance interpretativo.
 - **Prioridad:** ALTA.
-- **Disponibilidad:** debe esperar DT-03 y decisión sobre formulación.
+- **Disponibilidad:** decisión de formulación resuelta y decisión de DT-03 registrada; edición de la tesis y validación pendientes.
+- **Decisión:** objetivo general: «Determinar en qué medida una aplicación educativa de escritorio basada en gamificación mejora la comprensión lectora de los estudiantes de educación primaria del Scorza College.» Cuarto objetivo específico: «Evaluar la variación en la comprensión lectora de los estudiantes mediante la comparación de los resultados obtenidos antes y después de utilizar la aplicación educativa de escritorio basada en gamificación, para establecer si se registra una mejora y en qué medida.» Los tres primeros objetivos específicos permanecen sin cambios. La mejora es una finalidad por evaluar, no un resultado demostrado; se mantienen los límites de inferencia de DT-03. Los textos se registran para una futura edición de la tesis, no como cambios ya aplicados ni como aprobación del asesor.
+- **Estado:** DECISIÓN RESUELTA; CORRECCIÓN PENDIENTE DE APLICACIÓN Y VALIDACIÓN.
 
 ### DT-05 — Censo, muestra y selección
 
