@@ -1,0 +1,32 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+participant QuizView as V
+participant SupabaseQuizService as S
+participant "enviar-quiz" as F
+database "PostgreSQL\nconfigurado" as DB
+V -> S : enviarQuiz(intentoId, respuestas[5])
+S -> F : POST enviar-quiz\n{intentoId, respuestas} + Bearer; 30 s
+F -> F : validar estructura, JWT y propiedad
+F -> DB : cargar intento y preguntas con índice correcto
+alt intento ya completado; 5 respuestas recuperadas
+ DB --> F : resultado existente; no recalcular
+else corrección
+ loop 5 preguntas
+  F -> F : comparar índice; sumar acierto
+  F -> DB : actualizar selección y es_correcta
+  DB --> F : resultado / error\nindividual: registrar y continuar
+ end
+ F -> DB : completar intento\nround(puntaje/5*100)
+ DB --> F : correcto / error 500
+end
+F --> S : HTTP 200 QuizResult / error
+S --> V : puntaje 0..5, porcentaje, explicaciones / error
+note over V,DB
+CU-10, panel (b): finalizar ~[5 selecciones~].
+No corrección local confirmada; feedback al final.
+Fallo de envío: mostrar error y conservar selecciones.
+No E2E ni atomicidad integral acreditados.
+end note
+@enduml

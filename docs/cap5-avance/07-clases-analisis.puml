@@ -1,0 +1,40 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+hide empty members
+class "Entrada narrativa" as EN <<boundary>>
+class "Lectura de escenas" as LE <<boundary>>
+class "Práctica Quiz" as PQ <<boundary>>
+class "Coordinar aventura" as CA <<control>>
+class "Coordinar Quiz" as CQ <<control>>
+class Cuento <<entity>> {
+ id : String
+ personajePrincipal : String
+}
+class Escena <<entity>> {
+ numero : int
+ contenido : String
+}
+class DecisionNarrativa <<entity>> {
+ numeroEscena : int
+ opcionSeleccionada : String
+}
+class "Intento Quiz" as IQ <<entity>>
+class "Pregunta y respuesta" as PR <<entity>>
+EN ..> CA
+LE ..> CA
+PQ ..> CQ
+CA ..> Cuento
+CQ ..> IQ
+Cuento "1" *-- "0..*" Escena
+Cuento "1" *-- "0..*" DecisionNarrativa
+IQ "1" *-- "0..5" PR
+IQ "0..*" --> "1" Cuento
+legend bottom
+Abstracción de análisis derivada del código, no modelo institucional validado.
+0..5 admite creación parcial; un Quiz válido exige cinco preguntas.
+Un intento por pareja (cuento, estudiante), según la restricción SQL.
+Las responsabilidades de control se refinan en la figura 8, no son clases nuevas.
+endlegend
+@enduml

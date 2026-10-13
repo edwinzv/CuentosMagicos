@@ -1,0 +1,64 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 17
+skinparam shadowing false
+hide empty members
+class _HomeRouterState <<control>> {
+ _pantalla : AppScreen
+ _cuento : Cuento?
+ _procesandoPdf : bool
+ _buildStudentFlow(perfil) : Widget
+}
+class StoryController <<control>> {
+ generandoSiguienteEscena : bool
+ crearCuentoInicialDemo(...) : Future<Cuento>
+ procesarPdf(nombreArchivo, pdfBytes) : Future<PdfStoryData>
+ generarSiguienteEscena(cuento, escenaActual, decision) : Future<Escena>
+ asegurarIlustracionEscena(...) : Future<String?>
+}
+class Cuento <<entity>> {
+ id : String
+ textoFuente : String?
+ escenas : List<Escena>
+ decisiones : List<DecisionNarrativa>
+ agregarEscena(escena) : void
+ registrarDecision(decision) : bool
+}
+class Escena <<entity>> {
+ numero : int
+ contenido : String
+ imageUrl : String?
+ opciones : List<String>
+ esFinal : bool
+ copyWith(...) : Escena
+}
+class DecisionNarrativa <<entity>> {
+ numeroEscena : int
+ opcionSeleccionada : String
+}
+interface AiService {
+ analizarHistoria(texto) : Future<StoryAnalysis>
+ generarEscenaInicial(...) : Future<GeneratedScene>
+ generarEscena(...) : Future<GeneratedScene>
+}
+class SupabaseAiService
+interface CuentoRepository {
+ guardarCuento(cuento) : Future<void>
+ obtenerCuento(id) : Future<Cuento?>
+ listarCuentosPorEstudiante(id) : Future<List<Cuento>>
+}
+class CuentoRepositorySupabase
+_HomeRouterState "1" --> "1" StoryController : referencia
+StoryController "0..*" --> "1" AiService
+StoryController "0..*" --> "1" CuentoRepository
+StoryController ..> Cuento
+Cuento "1" *-- "0..*" Escena
+Cuento "1" *-- "0..*" DecisionNarrativa
+SupabaseAiService ..|> AiService
+CuentoRepositorySupabase ..|> CuentoRepository
+legend bottom
+Panel (a): núcleo narrativo. ... omite parámetros.
+Colecciones variables en memoria; contratos en sección 5.9.
+No existe AppController separado.
+endlegend
+@enduml

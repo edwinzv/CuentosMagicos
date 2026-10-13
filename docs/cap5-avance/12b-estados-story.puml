@@ -1,0 +1,23 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+[*] --> Elegir
+state Elegir <<choice>>
+Elegir --> finished : [escena.esFinal]
+Elegir --> waitingDecision : [!final && última generada]
+Elegir --> reading : [!final && !última generada]
+reading --> narrating : escuchar\n~[!generando && !TTS activo~]
+waitingDecision --> narrating : escuchar / iniciar TTS y revelado
+finished --> narrating : escuchar
+narrating --> Elegir : finalizar / detener\n/ actualizarEstadoEscena
+waitingDecision --> generatingScene : continuar\n[guardas satisfechas]
+generatingScene --> Elegir : escena recibida / preparar escena
+generatingScene --> error : excepción / mostrar mensaje
+error --> generatingScene : reintento ~[guardas satisfechas~]
+reading --> Elegir : navegar por escenas\n/ preparar escena
+legend bottom
+Panel (b): StoryStatus de StoryView.
+Elegir es pseudestado de la reconstrucción, no enum del código.
+endlegend
+@enduml

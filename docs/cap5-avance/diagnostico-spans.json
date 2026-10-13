@@ -1,0 +1,318 @@
+{
+  "170": [
+    {
+      "text": " ",
+      "size": 17.14299964904785,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        31.185548782348633,
+        89.33875274658203,
+        50.16284942626953
+      ]
+    },
+    {
+      "text": " ",
+      "size": 17.14299964904785,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        1137.385498046875,
+        89.33875274658203,
+        1156.36279296875
+      ]
+    },
+    {
+      "text": "Figura ",
+      "size": 17.14299964904785,
+      "font": "TimesNewRomanPS-BoldItalicMT",
+      "bbox": [
+        85.0530014038086,
+        66.66552734375,
+        124.64725494384766,
+        85.64282989501953
+      ]
+    },
+    {
+      "text": "6 Casos de uso del sistema: alcance actual y exportación pendiente ",
+      "size": 12.857000350952148,
+      "font": "TimesNewRomanPS-ItalicMT",
+      "bbox": [
+        122.7699966430664,
+        70.4843521118164,
+        369.63427734375,
+        84.71705627441406
+      ]
+    },
+    {
+      "text": " ",
+      "size": 17.14299964904785,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        756.8300170898438,
+        1001.6155395507812,
+        761.1157836914062,
+        1020.5928344726562
+      ]
+    },
+    {
+      "text": "Fuente: elaboración técnica a partir del código y las migraciones locales inspeccionados; no acredita ejecución ni despliegue.",
+      "size": 14.229000091552734,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        1013.4718627929688,
+        586.8772583007812,
+        1029.223388671875
+      ]
+    },
+    {
+      "text": " ",
+      "size": 17.14299964904785,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        585.3800048828125,
+        1010.87548828125,
+        589.665771484375,
+        1029.852783203125
+      ]
+    }
+  ],
+  "176": [
+    {
+      "text": " ",
+      "size": 17.14299964904785,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        31.185548782348633,
+        89.33875274658203,
+        50.16284942626953
+      ]
+    },
+    {
+      "text": " ",
+      "size": 17.14299964904785,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        1137.385498046875,
+        89.33875274658203,
+        1156.36279296875
+      ]
+    },
+    {
+      "text": "Figura ",
+      "size": 17.14299964904785,
+      "font": "TimesNewRomanPS-BoldItalicMT",
+      "bbox": [
+        85.0530014038086,
+        66.66552734375,
+        124.65333557128906,
+        85.64282989501953
+      ]
+    },
+    {
+      "text": "8 Clases de diseño y contratos reales del núcleo narrativo y Quiz ",
+      "size": 12.857000350952148,
+      "font": "TimesNewRomanPS-ItalicMT",
+      "bbox": [
+        122.7699966430664,
+        70.4843521118164,
+        361.2342529296875,
+        84.71705627441406
+      ]
+    },
+    {
+      "text": " ",
+      "size": 17.14299964904785,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        756.8300170898438,
+        599.195556640625,
+        761.1157836914062,
+        618.1728515625
+      ]
+    },
+    {
+      "text": "Fuente: elaboración técnica a partir del código y las migraciones locales inspeccionados; no acredita ejecución ni despliegue.",
+      "size": 14.229000091552734,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        611.0518798828125,
+        586.8772583007812,
+        626.8034057617188
+      ]
+    },
+    {
+      "text": " ",
+      "size": 17.14299964904785,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        585.3800048828125,
+        608.4555053710938,
+        589.665771484375,
+        627.4328002929688
+      ]
+    }
+  ],
+  "180": [
+    {
+      "text": " ",
+      "size": 12.0,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        35.76802062988281,
+        88.0530014038086,
+        49.05202102661133
+      ]
+    },
+    {
+      "text": " ",
+      "size": 12.0,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        793.31201171875,
+        88.0530014038086,
+        806.5960083007812
+      ]
+    },
+    {
+      "text": "Figura ",
+      "size": 12.0,
+      "font": "TimesNewRomanPS-BoldItalicMT",
+      "bbox": [
+        85.0530014038086,
+        71.27803039550781,
+        122.68499755859375,
+        84.5620346069336
+      ]
+    },
+    {
+      "text": "10 Secuencia de continuación: guardas, contexto, reintentos y persistencia ",
+      "size": 9.085700035095215,
+      "font": "TimesNewRomanPS-ItalicMT",
+      "bbox": [
+        122.7699966430664,
+        73.87467193603516,
+        394.89141845703125,
+        83.93254089355469
+      ]
+    },
+    {
+      "text": " ",
+      "size": 12.0,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        933.719970703125,
+        680.4879760742188,
+        936.719970703125,
+        693.77197265625
+      ]
+    },
+    {
+      "text": "Fuente: elaboración técnica a partir del código y las migraciones locales inspeccionados; no acredita ejecución ni despliegue.",
+      "size": 9.942899703979492,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        691.5808715820312,
+        585.2457275390625,
+        702.587646484375
+      ]
+    },
+    {
+      "text": " ",
+      "size": 12.0,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        585.3300170898438,
+        689.7479858398438,
+        588.3300170898438,
+        703.031982421875
+      ]
+    }
+  ],
+  "194": [
+    {
+      "text": " ",
+      "size": 12.0,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        35.76802062988281,
+        88.0530014038086,
+        49.05202102661133
+      ]
+    },
+    {
+      "text": " ",
+      "size": 12.0,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        793.31201171875,
+        88.0530014038086,
+        806.5960083007812
+      ]
+    },
+    {
+      "text": "Figura ",
+      "size": 12.0,
+      "font": "TimesNewRomanPS-BoldItalicMT",
+      "bbox": [
+        85.0530014038086,
+        71.27803039550781,
+        122.68499755859375,
+        84.5620346069336
+      ]
+    },
+    {
+      "text": "17 Nodos, artefactos y protocolos de la configuración, sin despliegue acreditado ",
+      "size": 9.085700035095215,
+      "font": "TimesNewRomanPS-ItalicMT",
+      "bbox": [
+        122.7699966430664,
+        73.87467193603516,
+        416.4914245605469,
+        83.93254089355469
+      ]
+    },
+    {
+      "text": " ",
+      "size": 12.0,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        1071.06005859375,
+        680.4879760742188,
+        1074.06005859375,
+        693.77197265625
+      ]
+    },
+    {
+      "text": "Fuente: elaboración técnica a partir del código y las migraciones locales inspeccionados; no acredita ejecución ni despliegue.",
+      "size": 9.942899703979492,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        85.0530014038086,
+        691.5808715820312,
+        585.2457275390625,
+        702.587646484375
+      ]
+    },
+    {
+      "text": " ",
+      "size": 12.0,
+      "font": "TimesNewRomanPSMT",
+      "bbox": [
+        585.3300170898438,
+        689.7479858398438,
+        588.3300170898438,
+        703.031982421875
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "respaldo": "C:\\Users\\Ignacia\\AppData\\Local\\Temp\\opencode\\cap5-ciclo2-base.zip",
+  "respaldo_sha256": "933d8975dda8990e9134b66610ed7188cab96ff1699460dd56b3a086204441b4",
+  "hashes_antes": {
+    "fuente": "89d06373398c6afdd2f6c848383f8685ee59d1b18f45ab5a62d8ee06c6ecee80",
+    "docx": "f828f5cc56fa2a653cdd308abb79cfe7c57729e3e750c4ea2b57e0ff920d33cb",
+    "pdf": "bbd6764bec2182654f8c339974ab2aca2e3e39e4a3fb9d991292fa5b0dd252e4"
+  },
+  "archivos_respaldados": [
+    "tesis/tesis_parcial2_cap3_cap5_avance.docx",
+    "docs/cap5-avance/tesis_parcial2_cap3_cap5_avance.pdf",
+    "MEMORY.md",
+    "docs/cap5-avance/capitulo-v.md",
+    "docs/cap5-avance/13-estados-quiz-imagen.puml",
+    "docs/cap5-avance/13-estados-quiz-imagen.png",
+    "docs/cap5-avance/construccion.json",
+    "docs/cap5-avance/render-indices.json",
+    "docs/cap5-avance/verificacion-integridad.json",
+    "docs/cap5-avance/validacion.md",
+    "docs/cap5-avance/revision-independiente-pendiente.md",
+    "lib/views/quiz_view.dart",
+    "supabase/migrations/20261008100000_quiz_comprension.sql"
+  ]
+}

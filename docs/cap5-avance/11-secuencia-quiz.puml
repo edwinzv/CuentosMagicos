@@ -1,0 +1,36 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+participant QuizView as V
+participant SupabaseQuizService as S
+participant "generar-quiz" as F
+database "PostgreSQL\nconfigurado" as DB
+participant "Gemini\nAPI configurada" as AI
+V -> S : generarQuiz(cuentoId)
+S -> F : POST generar-quiz\n{cuentoId} + Bearer; 40 s
+F -> F : validar JWT, rol estudiante y propiedad
+F -> DB : leer cuento, escenas e intento
+DB --> F : datos / error
+alt sin intento reutilizable; final o al menos 4 escenas
+ F -> DB : leer decisiones
+ F -> AI : solicitar cinco preguntas(caminoRecorrido)
+ AI --> F : preguntas validadas / error 503
+ F -> DB : insertar intento; insertar 5 preguntas
+ DB --> F : ids / error; limpieza del intento si falla preguntas
+else intento en progreso con 5 preguntas
+ F -> DB : recuperar preguntas sin clave
+else intento completado
+ F -> DB : recuperar resultado y explicaciones
+end
+F --> S : HTTP 200 preguntas / resultado\n400/401/403/500/503 error
+S --> V : QuizStartResponse / StateError
+loop preguntas 1..5; solo intento en progreso
+ V -> V : seleccionar; siguiente ~[selección existe~]; anterior permitido
+end
+note over V,DB
+CU-10, panel (a): preparación y resolución local.
+Preguntas sin clave antes de finalizar; resultado existente si ya completado.
+No prueba E2E ni atomicidad entre las escrituras.
+end note
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+skinparam componentStyle uml2
+left to right direction
+component "Views + _HomeRouterState\nlib/views; main.dart" as V
+component "StoryController\nlib/controllers" as C
+component "SupabaseAiService" as AI
+component "SupabaseImageService" as IMG
+component "SupabaseQuizService" as Q
+component "CuentoRepositorySupabase" as CR
+component "QuizRepositorySupabase" as QR
+component "DocumentService" as DOC
+component "NarracionService" as TTS
+interface AiService as IAI
+interface ImageService as IIMG
+interface QuizService as IQ
+interface CuentoRepository as ICR
+interface QuizRepository as IQR
+interface "procesarPdf\n«método público»" as IDOC
+interface "narrarTextoCompleto\n«método público»" as ITTS
+AI - IAI
+C -( IAI
+IMG - IIMG
+C -( IIMG
+Q - IQ
+V -( IQ
+CR - ICR
+C -( ICR
+V -( ICR
+QR - IQR
+V -( IQR
+DOC - IDOC
+C -( IDOC
+TTS - ITTS
+V -( ITTS
+V ..> C
+legend bottom
+Lollipop: interfaz provista; socket: requerida. Interfaces rotuladas «método público»
+son contratos del componente, no interfaces Dart adicionales.
+Las implementaciones Supabase requieren SupabaseClient (SDK); funciones y datos
+se distribuyen según figura 17. TeacherHomeView consulta el SDK directamente.
+endlegend
+@enduml

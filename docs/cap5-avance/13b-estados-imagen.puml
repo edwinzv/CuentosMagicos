@@ -1,0 +1,15 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+[*] --> sinImagen
+sinImagen --> generando : solicitar\n[servicio && !histórico]
+generando --> cargada : URL recibida
+generando --> error : null / excepción
+error --> generando : reintento manual\n[guardas satisfechas]
+cargada --> cargada : navegar / reutilizar URL
+legend bottom
+Panel (b): EstadoImagenEscena de StoryView, por escena.
+No regeneración automática en modo histórico.
+endlegend
+@enduml

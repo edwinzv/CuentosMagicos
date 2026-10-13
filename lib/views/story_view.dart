@@ -1,10 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../controllers/story_controller.dart';
 import '../models/cuento.dart';
 import '../models/escena.dart';
+import '../models/quiz_attempt_summary.dart';
+import '../services/image_service.dart';
 import '../services/narracion_service.dart';
 import '../widgets/ilustracion_escena_widget.dart';
 
@@ -24,6 +27,8 @@ class StoryView extends StatefulWidget {
   final Future<void> Function(Escena escena)? onNarrar;
   final NarracionService? narracionService;
   final bool autoNarrar;
+  final bool modoHistorico;
+  final QuizAttemptSummary? intentoQuiz;
 
   final VoidCallback onSalir;
   final VoidCallback? onIrEvaluacion;
@@ -37,6 +42,8 @@ class StoryView extends StatefulWidget {
     required this.onSalir,
     this.onIrEvaluacion,
     this.autoNarrar = true,
+    this.modoHistorico = false,
+    this.intentoQuiz,
   });
 
   @override
@@ -61,6 +68,7 @@ class _StoryViewState extends State<StoryView> {
   final Set<int> _escenasLeidas = {};
 
   final Map<int, EstadoImagenEscena> _estadosImagen = {};
+  final Map<int, ImageAuthException> _erroresAuthImagen = {};
   Timer? _timerAutoNarracion;
 
   Escena get _escenaActual {
@@ -142,7 +150,9 @@ class _StoryViewState extends State<StoryView> {
     final yaLeida = _escenasLeidas.contains(escena.numero);
 
     // Si hay ImageService y la escena no tiene imagen, iniciar carga asíncrona sin bloquear lectura
-    if (widget.controller.imageService != null &&
+    // En modo histórico: NO regenerar imágenes automáticamente (Requirement T, HISTORY-13, HISTORY-14)
+    if (!widget.modoHistorico &&
+        widget.controller.imageService != null &&
         (escena.imageUrl == null || escena.imageUrl!.trim().isEmpty) &&
         _estadosImagen[escena.numero] != EstadoImagenEscena.error &&
         _estadosImagen[escena.numero] != EstadoImagenEscena.generando) {
@@ -718,16 +728,58 @@ class _StoryViewState extends State<StoryView> {
       setState(() {
         if (url != null && url.isNotEmpty) {
           _estadosImagen[numero] = EstadoImagenEscena.cargada;
+          _erroresAuthImagen.remove(numero);
         } else {
           _estadosImagen[numero] = EstadoImagenEscena.error;
         }
       });
+    } on ImageAuthException catch (authErr) {
+      if (!mounted) return;
+      setState(() {
+        _estadosImagen[numero] = EstadoImagenEscena.error;
+        _erroresAuthImagen[numero] = authErr;
+      });
+
+      if (authErr.statusCode == 401) {
+        _manejarSesionExpirada(authErr.message);
+      } else if (authErr.statusCode == 403) {
+        _mostrarErrorAccesoDenegado(authErr.message);
+      }
     } catch (_) {
       if (!mounted) return;
       setState(() {
         _estadosImagen[numero] = EstadoImagenEscena.error;
       });
     }
+  }
+
+  void _manejarSesionExpirada(String mensaje) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          'Tu sesión ha expirado o no es válida. Por favor, inicia sesión nuevamente.',
+        ),
+        backgroundColor: Color(0xFFC62828),
+        duration: Duration(seconds: 4),
+      ),
+    );
+
+    try {
+      Supabase.instance.client.auth.signOut(scope: SignOutScope.local);
+    } catch (_) {}
+    widget.onSalir();
+  }
+
+  void _mostrarErrorAccesoDenegado(String mensaje) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(mensaje),
+        backgroundColor: const Color(0xFFC62828),
+        duration: const Duration(seconds: 4),
+      ),
+    );
   }
 
   Widget _buildImagen() {
@@ -786,34 +838,50 @@ class _StoryViewState extends State<StoryView> {
         );
 
       case EstadoImagenEscena.error:
+        final authError = _erroresAuthImagen[escena.numero];
+        final esErrorAuth = authError != null;
+
         return Container(
           color: const Color(0xFFFFF3E0),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
-                  Icons.broken_image_rounded,
+                Icon(
+                  esErrorAuth
+                      ? Icons.lock_clock_rounded
+                      : Icons.broken_image_rounded,
                   size: 60,
-                  color: Color(0xFFD32F2F),
+                  color: const Color(0xFFD32F2F),
                 ),
                 const SizedBox(height: 14),
-                const Text(
-                  'No pudimos crear la ilustración.',
+                Text(
+                  esErrorAuth
+                      ? (authError.statusCode == 401
+                            ? 'Sesión no válida o expirada.'
+                            : 'Acceso denegado.')
+                      : 'No pudimos crear la ilustración.',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF5D4037),
                   ),
                 ),
                 const SizedBox(height: 14),
-                FilledButton.tonalIcon(
-                  onPressed: () =>
-                      _solicitarGeneracionImagen(forzarReintento: true),
-                  icon: const Icon(Icons.refresh_rounded, size: 18),
-                  label: const Text('Reintentar'),
-                ),
+                if (!esErrorAuth)
+                  FilledButton.tonalIcon(
+                    onPressed: () =>
+                        _solicitarGeneracionImagen(forzarReintento: true),
+                    icon: const Icon(Icons.refresh_rounded, size: 18),
+                    label: const Text('Reintentar'),
+                  )
+                else if (authError.statusCode == 401)
+                  FilledButton.tonalIcon(
+                    onPressed: () => _manejarSesionExpirada(authError.message),
+                    icon: const Icon(Icons.login_rounded, size: 18),
+                    label: const Text('Iniciar sesión'),
+                  ),
               ],
             ),
           ),
@@ -886,7 +954,8 @@ class _StoryViewState extends State<StoryView> {
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 18, color: Color(0xFF795548)),
             ),
-            if (widget.controller.imageService != null) ...[
+            if (!widget.modoHistorico &&
+                widget.controller.imageService != null) ...[
               const SizedBox(height: 14),
               FilledButton.tonalIcon(
                 onPressed: () => _solicitarGeneracionImagen(),
@@ -932,6 +1001,46 @@ class _StoryViewState extends State<StoryView> {
 
     if (_status == StoryStatus.error) {
       return _buildError();
+    }
+
+    if (widget.modoHistorico) {
+      if (_escenaActual.esFinal) {
+        return _buildFinal();
+      }
+
+      final decision = widget.cuento.decisiones
+          .where((d) => d.numeroEscena == _escenaActual.numero)
+          .firstOrNull;
+
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(30, 0, 30, 22),
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          decoration: BoxDecoration(
+            color: const Color(0xFFFFF3E0),
+            borderRadius: BorderRadius.circular(18),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.history_rounded, color: Color(0xFFE65100)),
+              const SizedBox(width: 10),
+              Flexible(
+                child: Text(
+                  decision != null
+                      ? 'Decisión tomada: "${decision.opcionSeleccionada}"'
+                      : 'Estás leyendo tu aventura guardada.',
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF6D4C41),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
     }
 
     if (_escenaActual.esFinal) {
@@ -1114,6 +1223,19 @@ class _StoryViewState extends State<StoryView> {
   }
 
   Widget _buildFinal() {
+    String etiquetaBoton = 'Ir a las preguntas';
+    IconData iconoBoton = Icons.quiz_rounded;
+
+    if (widget.intentoQuiz != null) {
+      if (widget.intentoQuiz!.estado == 'en_progreso') {
+        etiquetaBoton = 'Continuar preguntas';
+        iconoBoton = Icons.pending_actions_rounded;
+      } else if (widget.intentoQuiz!.estado == 'completado') {
+        etiquetaBoton = 'Ver mi resultado';
+        iconoBoton = Icons.analytics_outlined;
+      }
+    }
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(30, 0, 30, 22),
       child: Container(
@@ -1126,21 +1248,18 @@ class _StoryViewState extends State<StoryView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              '🎉 ¡Has llegado al final '
-              'de esta aventura!',
+              '🎉 ¡Has llegado al final de esta aventura!',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-
             if (widget.onIrEvaluacion != null) ...[
               const SizedBox(width: 25),
-
               FilledButton.icon(
                 onPressed: () {
                   _detenerNarracion();
                   widget.onIrEvaluacion?.call();
                 },
-                icon: const Icon(Icons.quiz_rounded),
-                label: const Text('Ir a las preguntas'),
+                icon: Icon(iconoBoton),
+                label: Text(etiquetaBoton),
               ),
             ],
           ],

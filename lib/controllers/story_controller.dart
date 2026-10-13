@@ -85,6 +85,7 @@ class StoryController {
 
     final escenaInicial = narrativaService.crearEscenaInicialDemo(
       nombrePersonaje: nombre,
+      descripcionPersonaje: descFinal,
     );
 
     cuento.agregarEscena(escenaInicial);
@@ -183,6 +184,7 @@ class StoryController {
       personajeOriginal: personajeOriginal,
       esPersonajeNuevo: esNuevo,
       origen: CuentoOrigen.pdf,
+      esModoDibujo: personalizacion.visualMode == CharacterVisualMode.drawing,
       textoFuente: datosPdf.textoExtraido,
       resumenOriginal: datosPdf.resumen,
       escenarioOriginal: datosPdf.escenario,
@@ -695,7 +697,7 @@ class StoryController {
       Uint8List? referenciaBytes;
       Uint8List? referenciaAnteriorBytes;
 
-      if (cuento.origen == CuentoOrigen.dibujo) {
+      if (cuento.esModoDibujo) {
         // En escena 1: usar el dibujo del estudiante como referencia principal.
         referenciaBytes = cuento.referenciaVisualPng;
         // En escenas 2, 3, 4: usar dibujo original + anchor de la escena anterior
@@ -715,15 +717,24 @@ class StoryController {
         }
       }
 
+      // Si es modo dibujo y proviene de PDF (el estudiante dibujó la apariencia del personaje),
+      // la descripción visual para la ilustración NO debe imponer los rasgos físicos del PDF (ej: niña).
+      // Debe representar fielmente el diseño del dibujo del estudiante.
+      final String? descripcionVisualParaImagen =
+          cuento.esModoDibujo && cuento.origen == CuentoOrigen.pdf
+          ? 'Representar a ${cuento.personajePrincipal} utilizando fielmente el diseño del personaje dibujado por el estudiante.'
+          : cuento.descripcionPersonaje;
+
       final solicitud = SolicitudImagenEscena(
         cuentoId: cuento.id,
         numeroEscena: numeroEscena,
         contenidoEscena: escena.contenido,
         nombreProtagonista: cuento.personajePrincipal,
-        descripcionPersonaje: cuento.descripcionPersonaje,
+        descripcionPersonaje: descripcionVisualParaImagen,
         escenario: cuento.escenarioOriginal,
         referenciaVisualBytes: referenciaBytes,
         referenciaAnteriorBytes: referenciaAnteriorBytes,
+        esModoDibujo: cuento.esModoDibujo,
       );
 
       final url = await imageService!
@@ -752,8 +763,12 @@ class StoryController {
         return urlFinal;
       }
       return null;
+    } on ImageAuthException {
+      // 401 y 403 son errores de autenticación/autorización:
+      // NO deben enmascararse como fallo genérico de imagen ni reintentarse automáticamente.
+      rethrow;
     } catch (_) {
-      // Si la imagen falla, NO bloquear el cuento ni la narrativa
+      // Si la imagen falla por causas transitorias (red, 5xx), NO bloquear el cuento ni la narrativa
       return null;
     } finally {
       _generacionesImagenEnCurso.remove(clave);

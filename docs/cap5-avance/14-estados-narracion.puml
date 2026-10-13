@@ -1,0 +1,25 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+[*] --> detenido
+detenido --> reproduciendo : narrarTextoCompleto(texto) [trim no vacío]\n/ detener; speak; esperar Completer
+reproduciendo --> detenido : completion [!detencionSolicitada]\n/ actualizarEstado(detenido)
+reproduciendo --> detenido : detener() / stop; completar espera
+reproduciendo --> error : errorHandler(msg) / completar espera
+reproduciendo --> error : excepción en narrarTextoCompleto / retornar
+error --> detenido : detener() / stop
+error --> detenido : espera resuelta [!detencionSolicitada]\n/ actualización posterior posible
+state pausado
+note right of pausado
+Valor declarado del enum EstadoNarracion.
+No se localiza operación de pausa/reanudación
+que alcance este estado en el servicio.
+end note
+legend bottom
+NarracionService: narrarEscena segmenta texto y narra en bucle;
+StoryView usa narrarTextoCompleto y ControladorReveladoTexto.
+El error de handler puede ser sustituido por detenido al resolver la espera.
+No se inventan transiciones de pausa ni garantía de sincronía exacta.
+endlegend
+@enduml

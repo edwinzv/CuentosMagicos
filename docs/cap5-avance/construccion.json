@@ -1,0 +1,272 @@
+{
+  "fuente_sha256": "89d06373398c6afdd2f6c848383f8685ee59d1b18f45ab5a62d8ee06c6ecee80",
+  "bloques_insertados": 164,
+  "figuras": [
+    {
+      "numero": 6,
+      "panel": 1,
+      "archivo": "06-casos-uso.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 9.11
+    },
+    {
+      "numero": 7,
+      "panel": 1,
+      "archivo": "07-clases-analisis.png",
+      "papel_twips": [
+        11906,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 11.83
+    },
+    {
+      "numero": 8,
+      "panel": 1,
+      "archivo": "08-clases-diseno.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 10.47
+    },
+    {
+      "numero": 8,
+      "panel": 2,
+      "archivo": "08b-clases-quiz.png",
+      "papel_twips": [
+        11906,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 10.1
+    },
+    {
+      "numero": 9,
+      "panel": 1,
+      "archivo": "09-secuencia-creacion.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 13.54
+    },
+    {
+      "numero": 9,
+      "panel": 2,
+      "archivo": "09b-secuencia-pdf.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1000,
+      "font_nominal_final_pt": 9.39
+    },
+    {
+      "numero": 10,
+      "panel": 1,
+      "archivo": "10-secuencia-continuacion.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 9.06
+    },
+    {
+      "numero": 11,
+      "panel": 1,
+      "archivo": "11-secuencia-quiz.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 10.65
+    },
+    {
+      "numero": 11,
+      "panel": 2,
+      "archivo": "11b-secuencia-envio-quiz.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 11.63
+    },
+    {
+      "numero": 12,
+      "panel": 1,
+      "archivo": "12-estados-experiencia.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 12.56
+    },
+    {
+      "numero": 12,
+      "panel": 2,
+      "archivo": "12b-estados-story.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 12.96
+    },
+    {
+      "numero": 13,
+      "panel": 1,
+      "archivo": "13-estados-quiz-imagen.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 11.95
+    },
+    {
+      "numero": 13,
+      "panel": 2,
+      "archivo": "13b-estados-imagen.png",
+      "papel_twips": [
+        11906,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 14.23
+    },
+    {
+      "numero": 14,
+      "panel": 1,
+      "archivo": "14-estados-narracion.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 12.53
+    },
+    {
+      "numero": 15,
+      "panel": 1,
+      "archivo": "15-datos.png",
+      "papel_twips": [
+        11906,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 9.62
+    },
+    {
+      "numero": 15,
+      "panel": 2,
+      "archivo": "15b-datos-quiz.png",
+      "papel_twips": [
+        11906,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 12.4
+    },
+    {
+      "numero": 16,
+      "panel": 1,
+      "archivo": "16-componentes.png",
+      "papel_twips": [
+        11906,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 11.51
+    },
+    {
+      "numero": 17,
+      "panel": 1,
+      "archivo": "17-despliegue.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 9.85
+    },
+    {
+      "numero": 18,
+      "panel": 1,
+      "archivo": "18-paquetes.png",
+      "papel_twips": [
+        23811,
+        16838
+      ],
+      "margen_vertical_twips": 1417,
+      "font_nominal_final_pt": 10.02
+    }
+  ],
+  "tablas": [
+    {
+      "numero": 33,
+      "titulo": "Alcance observable del prototipo y límites de acreditación",
+      "filas": 11
+    },
+    {
+      "numero": 34,
+      "titulo": "Respaldo disponible y faltantes para el modelado del negocio",
+      "filas": 5
+    },
+    {
+      "numero": 35,
+      "titulo": "Matriz RF–CU–componente y estado del alcance",
+      "filas": 19
+    },
+    {
+      "numero": 36,
+      "titulo": "Especificaciones resumidas de CU: flujo principal y alternos comprobables",
+      "filas": 15
+    },
+    {
+      "numero": 37,
+      "titulo": "Correspondencia del análisis con el diseño y persistencia",
+      "filas": 8
+    },
+    {
+      "numero": 38,
+      "titulo": "Claves, restricciones y acceso definidos localmente",
+      "filas": 8
+    },
+    {
+      "numero": 39,
+      "titulo": "Trazabilidad CU–RF–clase–servicio–tabla–prueba y artefacto UML",
+      "filas": 9
+    },
+    {
+      "numero": 40,
+      "titulo": "Procedencia y verificaciones del repositorio local",
+      "filas": 6
+    },
+    {
+      "numero": 41,
+      "titulo": "Contratos de integración, esperas y errores localizados",
+      "filas": 8
+    },
+    {
+      "numero": 42,
+      "titulo": "Pruebas, esperado, obtenido, fuente y alcance probatorio",
+      "filas": 11
+    },
+    {
+      "numero": 43,
+      "titulo": "Balance documental y pendientes de los criterios de implementación",
+      "filas": 10
+    }
+  ]
+}

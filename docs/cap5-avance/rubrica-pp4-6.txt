@@ -1,0 +1,543 @@
+PÁGINA 4
+Criterio
+Deficiente
+0 puntos
+Regular
+0,5 a 1,5 puntos
+Aprobatorio
+2 puntos
+Avance del capítulo 5. Implementación
+En los criterios 12 y 13 también se califica la cobertura del avance: un proceso o un CU del sistema cuenta como modelado por
+completo solo si tiene todos los diagramas de la condición (d) de su criterio. El total son los procesos estudiados en el diagnóstico
+de la tesis y los CU del sistema que cubren todos los RF o HU del capítulo 3; los porcentajes son mínimos y se redondean hacia
+arriba.
+12
+Modelado de
+negocios:
+CU del
+negocio,
+actividades,
+secuencia y
+objetos del
+negocio
+• No presenta CU del
+negocio, o confunde
+actores del negocio con
+actores del sistema.
+• Los diagramas de
+actividades son
+informales (cajas y
+flechas sin notación
+UML) o no se conectan
+con los CU del negocio.
+• Carece de frontera
+organizacional y de
+propuesta de valor.
+• Modela por completo
+menos del 25 % de los
+procesos estudiados.
+0,5 Modela por
+completo el 25 %
+de los procesos
+estudiados.
+1
+Cumple (a) y
+modela por
+completo el 50 %
+de los procesos.
+1,5 Cumple (a) y una
+de (b) o (c), y
+modela por
+completo el 75 %
+de los procesos.
+(a) El diagrama de CU del negocio tiene frontera
+organizacional estricta, actores y trabajadores del
+negocio y propuesta de valor explícita.
+(b) Los diagramas de actividades tienen flujo completo:
+secuencia, decisiones, acciones paralelas con
+bifurcación y unión (fork/join) y particiones
+(swimlanes) correctas.
+(c) Trazabilidad: las actividades y la secuencia del
+negocio de cada proceso lo explican de inicio a fin,
+con los trabajadores y entidades del modelo de
+objetos.
+(d) Modela por completo todos los procesos estudiados:
+CU del negocio, diagrama de actividades, diagrama
+de secuencia del negocio y su parte del modelo de
+objetos del negocio (trabajadores y entidades).
+13
+Requeri-
+mientos: CU
+del sistema
+• Confunde los CU del
+sistema con los CU del
+negocio, o lista
+funcionalidades sin
+actores.
+• No traduce las
+necesidades del negocio
+en requisitos técnicos
+viables.
+• Omite <<include>> o
+<<extend>> donde la
+propia entrega muestra
+comportamiento
+compartido u opcional, o
+la mitad o más de esas
+relaciones están
+aplicadas
+incorrectamente.
+0,5 Define CU del
+sistema con
+actores para las
+funcionalidades
+principales.
+1
+Cumple (a) y una
+de (b), (c) o (d).
+1,5 Cumple (a) y dos
+de (b), (c) o (d), y
+modela por
+completo el 50 %
+de los CU del
+sistema.
+(a) Define toda la funcionalidad del sistema de
+información para usuarios internos y externos, con
+una matriz de requisitos frente a CU del sistema.
+(b) Evidencia la traducción directa de las necesidades
+del negocio en requisitos técnicos.
+(c) Usa <<include>> para todo comportamiento
+compartido y <<extend>> para todo
+comportamiento opcional o condicional presente en
+la entrega, con semántica y dirección correctas.
+(d) Modela por completo todos los CU del sistema:
+especificación con flujos básico y alternos, diagrama
+de secuencia y clases de análisis (interfaz, control y
+entidad); con un marco ágil, la especificación es la
+HU con sus criterios de aceptación.
+14
+Análisis y
+diseño:
+clases,
+secuencia y
+estados
+• Las clases no tienen
+atributos, métodos ni
+multiplicidad.
+• Los diagramas de
+secuencia no tienen
+orden cronológico de
+mensajes.
+• La máquina de estados
+está ausente o confunde
+estados con actividades.
+• No demuestra la
+evolución del modelo de
+dominio al diseño
+técnico.
+• El diseño muestra que el
+aporte se reduce a enviar
+datos a una API
+comercial o a un LLM y
+recibir su respuesta, sin
+orquestación,
+modificación
+paramétrica ni heurística
+propia.
+0,5 Presenta clases
+con atributos y
+métodos,
+secuencias
+cronológicas del
+camino feliz y
+máquina de
+estados con los
+estados
+principales.
+1
+Cumple (a) y una
+de (b), (c) o (d).
+1,5 Cumple (a) y dos
+de (b), (c) o (d).
+(a) Las clases tienen atributos, métodos, multiplicidad
+y tipos de relación correctos (no usa asociación
+donde corresponde composición).
+(b) Demuestra la evolución del modelo conceptual al
+diagrama de clases de diseño.
+(c) Las secuencias tienen fragmentos combinados (alt,
+loop, opt), parámetros y retornos, y cubren flujos
+principales y alternos.
+(d) La máquina de estados tiene todos los estados,
+eventos, guardas y acciones del ciclo de vida.
+Página 4 de 8
+Examen parcial 2 · Seminario de Investigación II · 2026-2
+
+PÁGINA 5
+Criterio
+Deficiente
+0 puntos
+Regular
+0,5 a 1,5 puntos
+Aprobatorio
+2 puntos
+15
+Análisis y
+diseño:
+modelo de
+datos y
+persistencia
+• No presenta el modelo
+lógico o físico de la base
+de datos.
+• Sobrescribe los datos
+originales con los
+resultados del algoritmo.
+• Elige el motor de base
+de datos por preferencia
+personal.
+0,5 Presenta el modelo
+lógico o físico de la
+base de datos.
+1
+Cumple (a) y una
+de (b), (c) o (d).
+1,5 Cumple (a) y dos
+de (b), (c) o (d).
+(a) El modelo de datos corresponde al diagrama de
+clases: atributos como columnas o campos con tipos
+coherentes y asociaciones como llaves foráneas,
+tablas intermedias o anidamientos.
+(b) Justifica el motor (relacional, documental, de grafos
+o de series de tiempo) por la topología de los datos
+del problema.
+(c) Separa estructuralmente los datos crudos,
+inmutables, de los datos procesados y los
+resultados.
+(d) Registra los resultados experimentales con
+metadatos de cada ejecución: identificador, marca
+de tiempo, hiperparámetros y versión del algoritmo.
+16
+Arquitectu-
+ra:
+componen-
+tes,
+despliegue y
+paquetes
+• No presenta diagramas
+de componentes o de
+despliegue, o son
+esquemas informales sin
+notación UML.
+• No identifica las
+interfaces entre
+componentes, o el
+despliegue carece de
+topología de red o de
+distribución de
+hardware.
+• Justifica la arquitectura
+por familiaridad con un
+framework o por
+comodidad de
+codificación.
+0,5 Presenta
+componentes con
+dependencias e
+interfaces
+identificadas y un
+despliegue con
+nodos, en notación
+UML.
+1
+Cumple (a) y una
+de (b), (c) o (d).
+1,5 Cumple (a) y dos
+de (b), (c) o (d).
+(a) Los componentes tienen interfaces provistas y
+requeridas en notación lollipop y socket, y
+dependencias trazables a clases o paquetes.
+(b) El despliegue muestra la topología de red completa:
+nodos, protocolos, artefactos y los dispositivos
+(firewall, balanceador de carga, router) que
+aseguran los RNF de seguridad y rendimiento.
+(c) Los paquetes siguen un criterio arquitectónico claro
+(capas o módulos), con dependencias dirigidas y sin
+ciclos injustificados.
+(d) Justifica el patrón arquitectónico (monolito
+modular, microservicios, eventos u otro) por las
+restricciones del experimento: aislamiento del
+núcleo e integridad de la persistencia.
+17
+Principios
+rectores
+UML
+(transversal
+a todos los
+artefactos)
+• Usa esquemas informales
+sin semántica UML
+estándar, que generan
+ambigüedades.
+• Los diagramas están
+desconectados entre sí:
+no es posible rastrear el
+flujo de la VI a la VD.
+• Hay tres o más
+discrepancias de
+nomenclatura entre los
+diagramas y el texto.
+• El detalle es insuficiente
+para que otro
+investigador replique la
+arquitectura, ni siquiera
+en su estructura general.
+0,5 Usa notación
+UML reconocible,
+tiene a lo sumo
+dos inconsistencias
+menores de
+nomenclatura y la
+arquitectura es
+replicable en su
+estructura general.
+1
+Cumple (a) y una
+de (b), (c) o (d).
+1,5 Cumple (a) y dos
+de (b), (c) o (d).
+(a) Trazabilidad completa de la VI a la VD, desde los
+CU del negocio hasta el despliegue, con el método
+propuesto ejecutable y medible sin interferencia de
+procesos secundarios.
+(b) Usa notación UML 2.x estricta en todos los
+artefactos: estereotipos, multiplicidades y guardas
+correctos.
+(c) Coherencia exacta entre texto y artefacto: misma
+nomenclatura, sin transcripciones literales de
+figuras.
+(d) El detalle es suficiente para replicar la arquitectura
+sin el código fuente.
+18
+Implementa-
+ción:
+correspon-
+dencia
+diseño y
+código,
+repositorio
+• No entrega el enlace al
+repositorio del prototipo,
+o sube todo el código en
+un solo envío final.
+• El repositorio versiona
+entornos virtuales,
+datasets masivos o
+credenciales.
+• El código contradice sin
+justificación escrita la
+arquitectura declarada.
+• Justifica el stack
+tecnológico por
+comodidad, curva de
+aprendizaje o
+experiencia previa.
+0,5 Entrega un
+repositorio con el
+código del núcleo
+y un historial de
+varios commits.
+1
+Cumple (a) y una
+de (b), (c) o (d).
+1,5 Cumple (a) y dos
+de (b), (c) o (d).
+(a) El código implementa toda la lógica de dominio y
+refleja el diseño (capas o servicios, orden de
+mensajes de las secuencias, patrones); cada
+desviación se justifica por escrito y actualiza los
+diagramas UML.
+(b) El repositorio tiene README con la arquitectura y
+los métodos, commits semánticos (feat:, fix:, docs:)
+que explican el porqué, ramas para los
+experimentos y etiquetas de versión.
+(c) El entorno se reconstruye con un único comando:
+versiones exactas de dependencias y stack
+(numpy==1.24.3), .gitignore desde el primer
+commit y contenedor o entorno virtual.
+(d) La lógica se expone mediante una interfaz coherente
+con el problema (REST con verbos y códigos de
+estado, GraphQL, gRPC, MQTT o colas) con
+contratos de datos definidos.
+Examen parcial 2 · Seminario de Investigación II · 2026-2
+Página 5 de 8
+
+PÁGINA 6
+Criterio
+Deficiente
+0 puntos
+Regular
+0,5 a 1,5 puntos
+Aprobatorio
+2 puntos
+19
+Alcance del
+prototipo e
+integración
+entre capas
+• No delimita el alcance
+del prototipo: no declara
+qué funcionalidades se
+implementan y cuáles se
+excluyen.
+• Programa cada vista
+como un bloque único de
+código, sin componentes.
+• Expone credenciales o
+tokens de sesión en el
+código, en el repositorio
+o en el almacenamiento
+del navegador
+(localStorage o
+sessionStorage).
+0,5 Delimita el alcance
+del prototipo y
+muestra la interfaz
+de los procesos
+centrales
+conectada al
+backend.
+1
+Cumple (a) y una
+de (b), (c) o (d).
+1,5 Cumple (a) y dos
+de (b), (c) o (d).
+(a) Declara las funcionalidades implementadas y
+excluidas, y cada CU del sistema o HU del alcance
+tiene su interfaz implementada a partir de su
+wireframe.
+(b) La interfaz se compone de componentes de
+responsabilidad única, con el estado local y el
+global definidos.
+(c) El consumo de datos es asíncrono, con contratos de
+datos tipados, límites de tiempo, manejo
+centralizado de errores mediante interceptores y sin
+indicadores de carga infinitos.
+(d) La seguridad entre capas mantiene el token de
+acceso en memoria y el de actualización en una
+cookie HttpOnly, Secure y SameSite, y resuelve
+CORS con el origen explícito o un proxy inverso.
+20
+Pruebas
+• No muestra el sistema
+funcionando.
+0,5 Muestra el sistema
+funcionando en los
+procesos centrales,
+con capturas por
+CU del sistema o
+por HU.
+1
+Cumple (a) y una
+de (b), (c) o (d).
+1,5 Cumple (a) y dos
+de (b), (c) o (d).
+(a) Codifica al menos una prueba automatizada de
+extremo a extremo (Cypress, Playwright u otra) del
+proceso central que verifica que la interfaz bloquea
+interacciones duplicadas, que el payload tiene la
+estructura correcta, que la base de datos registra la
+información y que el cliente recibe la respuesta
+esperada (HTTP 201 o equivalente).
+(b) Incluye pruebas de flujos alternos o de error y de
+regresión.
+(c) Vincula cada prueba con un criterio de aceptación o
+un CU del sistema, con el resultado esperado y el
+obtenido.
+(d) Mantiene compatibles las versiones de cliente y
+servidor mediante etiquetas de versión o
+monorepositorio.
+Borrador del artículo científico. a) Introducción
+21
+Contexto,
+brecha y
+propuesta
+• No establece un
+problema de
+investigación claro, o lo
+plantea como necesidad
+funcional de software
+comercial ("la empresa
+necesita un sistema...").
+• No demuestra un vacío
+en el estado del arte: cita
+trabajos sin identificar
+qué falta.
+• No justifica por qué es
+necesario comparar los
+modelos propuestos.
+• Copia fragmentos
+literales de la tesis.
+0,5 Plantea contexto,
+brecha y
+propuesta y
+justifica la
+comparación,
+aunque la brecha
+sea vaga o se
+apoye en pocas
+fuentes.
+1
+Cumple (a) y una
+de (b), (c) o (d).
+1,5 Cumple (a) y dos
+de (b), (c) o (d).
+(a) Establece un problema claro, demuestra
+explícitamente el vacío en el estado del arte y lo
+conecta con la necesidad de evaluar M modelos
+bajo N condiciones.
+(b) Redacta un texto continuo en embudo, sin
+subtítulos internos: contexto, brecha introducida
+con un conector de contraste y propuesta que
+declara la intención del artículo, la tecnología, el
+resultado esperado y la contribución principal.
+(c) Sitúa la contribución con un mapeo de referencias
+actualizadas; el contexto incluye al menos un dato
+estadístico con cita de cinco años de antigüedad
+como máximo.
+(d) El lenguaje es estrictamente objetivo: sin adjetivos
+calificativos subjetivos ni jerga comercial.
+22
+Hipótesis y
+objetivos
+• No presenta hipótesis, o
+la hipótesis no tiene
+variable medible ni
+condición contrastable.
+• Los objetivos son
+descripciones funcionales
+del software, no metas
+verificables con métricas
+cuantitativas.
+0,5 La hipótesis es
+contrastable,
+aunque sus
+umbrales no estén
+cuantificados ("el
+modelo A será
+mejor que B"), y
+los objetivos
+mencionan
+métricas.
+1
+Cumple (a).
+1,5 Cumple (a) y una
+de (b) o (c).
+(a) La hipótesis es contrastable y tiene condiciones
+cuantificadas, por ejemplo "F1 de al menos 0,85
+con p < 0,05".
+(b) Los objetivos son metas verificables con métricas
+estándar y definición operacional de cada variable.
+(c) Distingue la hipótesis nula (H0) de la alternativa
+(H1).
+Página 6 de 8
+Examen parcial 2 · Seminario de Investigación II · 2026-2

@@ -1,0 +1,20 @@
+{
+  "version": "2.0.0",
+  "generadoEl": "2026-10-10T05:39:35.111196+00:00",
+  "descripcion": "Llave maestra confidencial y aleatoria para evaluacion ciega de salidas anonimizadas (Cuentos Magicos - Piloto 02 Corregido)",
+  "mapeoAnonimo": {
+    "Modelo A": {
+      "proveedor": "Groq",
+      "modelo": "openai/gpt-oss-20b"
+    },
+    "Modelo B": {
+      "proveedor": "Groq",
+      "modelo": "qwen/qwen3.8-27b"
+    },
+    "Modelo C": {
+      "proveedor": "Google",
+      "modelo": "gemini-3.8-flash"
+    }
+  },
+  "hashSeguridad": "879462c3079ff4834e2ef82caabf92553ffd200ea4a189374860be48d3dad789"
+}

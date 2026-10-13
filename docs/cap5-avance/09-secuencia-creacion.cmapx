@@ -1,0 +1,8 @@
+<map id="09-secuencia-creacion_map" name="09-secuencia-creacion_map">
+<area shape="rect" id="id1" href="guardado" title="guardado" alt="" coords="91,865,163,886"/>
+<area shape="rect" id="id2" href="respuesta" title="respuesta" alt="" coords="449,606,527,627"/>
+<area shape="rect" id="id3" href="fallo" title="fallo" alt="" coords="15,962,123,983"/>
+<area shape="rect" id="id4" href="dibujo" title="dibujo" alt="" coords="91,78,239,98"/>
+<area shape="rect" id="id5" href="fallo" title="fallo" alt="" coords="373,669,551,689"/>
+<area shape="rect" id="id6" href="PDF" title="PDF" alt="" coords="15,257,195,277"/>
+</map>

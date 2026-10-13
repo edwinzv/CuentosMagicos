@@ -1,0 +1,10 @@
+<map id="11-secuencia-quiz_map" name="11-secuencia-quiz_map">
+<area shape="rect" id="id1" href="5" title="5" alt="" coords="803,1107,890,1127"/>
+<area shape="rect" id="id2" href="corrección" title="corrección" alt="" coords="700,1076,792,1097"/>
+<area shape="rect" id="id3" href="intento" title="intento" alt="" coords="710,574,811,595"/>
+<area shape="rect" id="id4" href="5" title="5" alt="" coords="97,827,279,847"/>
+<area shape="rect" id="id5" href="intento" title="intento" alt="" coords="710,517,958,537"/>
+<area shape="rect" id="id6" href="preguntas" title="preguntas" alt="" coords="107,737,360,757"/>
+<area shape="rect" id="id7" href="intento" title="intento" alt="" coords="776,1014,1135,1035"/>
+<area shape="rect" id="id8" href="sin" title="sin" alt="" coords="786,316,1183,336"/>
+</map>

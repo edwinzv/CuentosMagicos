@@ -1,0 +1,41 @@
+{
+  "fuente_sha256_antes": "89d06373398c6afdd2f6c848383f8685ee59d1b18f45ab5a62d8ee06c6ecee80",
+  "fuente_sha256_despues": "89d06373398c6afdd2f6c848383f8685ee59d1b18f45ab5a62d8ee06c6ecee80",
+  "paginas_fuente": 171,
+  "paginas_copia": 213,
+  "pdf_fuente_temporal": "C:\\Users\\Ignacia\\AppData\\Local\\Temp\\opencode\\cap5-fuente-preservada.pdf",
+  "fuente_pdf_sha256": "0855fbefbef70302d988aa2d53af09c09c0a6d60741e4775643f7aabadd1f31f",
+  "pares_comparados": [
+    {
+      "fuente_pdf": 20,
+      "copia_pdf": 21,
+      "objeto": "figura1"
+    },
+    {
+      "fuente_pdf": 58,
+      "copia_pdf": 59,
+      "objeto": "figura2"
+    },
+    {
+      "fuente_pdf": 91,
+      "copia_pdf": 92,
+      "objeto": "figura3"
+    },
+    {
+      "fuente_pdf": 100,
+      "copia_pdf": 101,
+      "objeto": "figura4"
+    },
+    {
+      "fuente_pdf": 111,
+      "copia_pdf": 112,
+      "objeto": "ecuacion"
+    },
+    {
+      "fuente_pdf": 117,
+      "copia_pdf": 118,
+      "objeto": "figura5"
+    }
+  ],
+  "modo": "ReadOnly, ExportAsFixedFormat, Close(False); sin guardado de DOCX"
+}

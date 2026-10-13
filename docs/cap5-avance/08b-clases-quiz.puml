@@ -1,0 +1,49 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+hide empty members
+class QuizView <<boundary>>
+class _QuizViewState <<control>> {
+ _selecciones : Map<int,int>
+ _cargando : bool
+ _enviando : bool
+ _iniciarQuiz() : Future<void>
+ _finalizarQuiz() : Future<void>
+}
+interface QuizService {
+ generarQuiz(cuentoId) : Future<QuizStartResponse>
+ enviarQuiz(...) : Future<QuizResult>
+}
+class SupabaseQuizService {
+ client : SupabaseClient
+}
+class QuizQuestion <<DTO>> {
+ numero : int
+ pregunta : String
+ opciones : List<String>
+ fromJson(json) : QuizQuestion
+}
+class QuizResult <<DTO>> {
+ intentoId : String
+ puntaje : int
+ porcentaje : num
+ fromJson(json) : QuizResult
+}
+class QuizQuestionResult <<DTO>> {
+ indiceSeleccionado : int
+ indiceCorrecto : int
+ explicacion : String
+}
+QuizView ..> _QuizViewState : createState()
+_QuizViewState "1" --> "0..5" QuizQuestion
+_QuizViewState "1" --> "0..1" QuizResult
+QuizView "0..*" --> "1" QuizService
+SupabaseQuizService ..|> QuizService
+QuizResult "1" *-- "0..5" QuizQuestionResult
+legend bottom
+Panel (b): Quiz. No QuizController separado.
+Cinco preguntas es condición de respuesta válida, no cantidad siempre presente.
+... omite parámetros; contratos completos en 5.9.
+endlegend
+@enduml

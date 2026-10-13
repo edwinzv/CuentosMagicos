@@ -1,27 +1,83 @@
 import 'dart:typed_data';
 
+import 'services/image_service.dart';
 import 'services/supabase_ai_service.dart';
 import 'services/supabase_image_service.dart';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'controllers/story_controller.dart';
 import 'models/character_customization.dart';
 import 'models/cuento.dart';
 import 'models/escena.dart';
+import 'models/generated_scene.dart';
 import 'models/pdf_story_data.dart';
+import 'models/story_analysis.dart';
+import 'repositories/cuento_repository.dart';
+import 'repositories/cuento_repository_memoria.dart';
 import 'repositories/cuento_repository_supabase.dart';
+import 'services/ai_service.dart';
 import 'services/document_service.dart';
 import 'services/narrativa_service.dart';
 import 'models/user_profile.dart';
+import 'models/quiz_question.dart';
+import 'models/quiz_result.dart';
+import 'models/quiz_attempt_summary.dart';
+import 'repositories/quiz_repository_supabase.dart';
 import 'services/auth_service.dart';
+import 'services/supabase_quiz_service.dart';
 import 'views/auth_gate.dart';
 import 'views/character_customization_view.dart';
 import 'views/document_view.dart';
 import 'views/draw_view.dart';
+import 'views/quiz_view.dart';
 import 'views/story_view.dart';
 import 'views/student_home_view.dart';
+
+/// Prepara y limpia determinísticamente la sesión local al inicio cuando FORCE_LOGIN_ON_START=true.
+/// Limpia tanto las claves en almacenamiento persistido (SharedPreferences) para que
+/// recoverSession() no restaure nada en segundo plano, como la sesión en memoria mediante signOut(scope: local).
+Future<void> prepararSesionInicial({
+  bool forceLoginOnStart = true,
+  AuthService? authService,
+}) async {
+  if (!forceLoginOnStart) return;
+
+  if (authService != null) {
+    await authService.limpiarSesionLocalAlInicio();
+    return;
+  }
+
+  // 1. Limpieza preventiva de SharedPreferences antes o durante arranque
+  try {
+    final prefs = await SharedPreferences.getInstance();
+    final claves = prefs
+        .getKeys()
+        .where(
+          (k) =>
+              k.startsWith('sb-') ||
+              k.contains('auth-token') ||
+              k.contains('supabase'),
+        )
+        .toList();
+    for (final k in claves) {
+      await prefs.remove(k);
+    }
+  } catch (e) {
+    debugPrint('[Startup] Error limpiando almacenamiento local previo: $e');
+  }
+
+  // 2. SignOut local explícito en cliente Supabase
+  try {
+    if (Supabase.instance.isInitialized) {
+      await Supabase.instance.client.auth.signOut(scope: SignOutScope.local);
+    }
+  } catch (e) {
+    debugPrint('[Startup] Error en signOut local de Supabase: $e');
+  }
+}
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,32 +105,246 @@ Future<void> main() async {
     );
   }
 
+  const forceLoginOnStart = bool.fromEnvironment(
+    'FORCE_LOGIN_ON_START',
+    defaultValue: true,
+  );
+
+  // Limpieza en disco previa a Supabase.initialize para anular recoverSession() asíncrono
+  if (forceLoginOnStart) {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final claves = prefs
+          .getKeys()
+          .where(
+            (k) =>
+                k.startsWith('sb-') ||
+                k.contains('auth-token') ||
+                k.contains('supabase'),
+          )
+          .toList();
+      for (final k in claves) {
+        await prefs.remove(k);
+      }
+    } catch (e) {
+      debugPrint('[Startup] Error limpiando almacenamiento local previo: $e');
+    }
+  }
+
   await Supabase.initialize(
     url: supabaseUrl,
     publishableKey: supabasePublishableKey,
   );
 
+  // Limpieza en memoria post Supabase.initialize
+  if (forceLoginOnStart) {
+    try {
+      await Supabase.instance.client.auth.signOut(scope: SignOutScope.local);
+    } catch (e) {
+      debugPrint('Error al limpiar sesión local en arranque: $e');
+    }
+  }
+
   runApp(const CuentosMagicosApp());
 }
 
 class CuentosMagicosApp extends StatelessWidget {
-  const CuentosMagicosApp({super.key});
+  final AuthService? authService;
+  final CuentoRepository? cuentoRepository;
+  final AiService? aiService;
+  final ImageService? imageService;
+  final NarrativaService? narrativaService;
+  final DocumentService? documentService;
+  final QuizService? quizService;
+  final QuizRepository? quizRepository;
+  final Future<void>? initializationFuture;
+
+  const CuentosMagicosApp({
+    super.key,
+    this.authService,
+    this.cuentoRepository,
+    this.aiService,
+    this.imageService,
+    this.narrativaService,
+    this.documentService,
+    this.quizService,
+    this.quizRepository,
+    this.initializationFuture,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final home = _HomeRouter(
+      authService: authService,
+      cuentoRepository: cuentoRepository,
+      aiService: aiService,
+      imageService: imageService,
+      narrativaService: narrativaService,
+      documentService: documentService,
+      quizService: quizService,
+      quizRepository: quizRepository,
+    );
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Cuentos Mágicos',
       theme: ThemeData(useMaterial3: true),
-      home: const _HomeRouter(),
+      home: initializationFuture == null
+          ? home
+          : FutureBuilder<void>(
+              future: initializationFuture,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState != ConnectionState.done) {
+                  return const Scaffold(
+                    backgroundColor: Color(0xFFFFF8F0),
+                    body: Center(
+                      child: CircularProgressIndicator(
+                        color: Color(0xFFF39C12),
+                      ),
+                    ),
+                  );
+                }
+                return home;
+              },
+            ),
     );
   }
 }
 
-enum AppScreen { home, drawing, document, characterCustomization, story }
+enum AppScreen { home, drawing, document, characterCustomization, story, quiz }
+
+class _FallbackAiService implements AiService {
+  @override
+  Future<StoryAnalysis> analizarHistoria(String texto) async => StoryAnalysis(
+    titulo: 'Cuento',
+    personajePrincipal: 'Personaje',
+    descripcionPersonaje: '',
+    resumen: '',
+    escenario: '',
+    conflictoPrincipal: '',
+    finalOriginal: '',
+  );
+
+  @override
+  Future<GeneratedScene> generarEscenaInicial({
+    required String titulo,
+    required String personajePrincipal,
+    String? personajeOriginal,
+    bool esPersonajeNuevo = false,
+    required String textoFuente,
+    required String resumenOriginal,
+    required String escenarioOriginal,
+    required String conflictoPrincipal,
+    required String finalOriginal,
+    String? descripcionPersonaje,
+  }) async => GeneratedScene(
+    contenido: 'Inicio',
+    opciones: const ['Opción 1'],
+    esFinal: false,
+  );
+
+  @override
+  Future<GeneratedScene> generarEscena({
+    required String titulo,
+    required String personajePrincipal,
+    String? personajeOriginal,
+    bool esPersonajeNuevo = false,
+    String? descripcionPersonaje,
+    required String textoFuente,
+    required String resumenOriginal,
+    required String escenarioOriginal,
+    required String conflictoPrincipal,
+    required String finalOriginal,
+    required String contextoNarrativo,
+    required String decisionActual,
+    required int numeroEscena,
+    bool esUltimaEscena = false,
+  }) async => GeneratedScene(
+    contenido: 'Escena $numeroEscena',
+    opciones: esUltimaEscena ? const [] : const ['Opción 1'],
+    esFinal: esUltimaEscena,
+  );
+}
+
+class _FallbackQuizService implements QuizService {
+  @override
+  Future<QuizStartResponse> generarQuiz(String cuentoId) async {
+    return QuizStartResponse(
+      intentoId: 'mock-intento',
+      estado: 'en_progreso',
+      preguntas: [
+        for (var i = 1; i <= 5; i++)
+          QuizQuestion(
+            numero: i,
+            pregunta: 'Pregunta $i de comprensión',
+            opciones: const ['Opción A', 'Opción B', 'Opción C', 'Opción D'],
+          ),
+      ],
+    );
+  }
+
+  @override
+  Future<QuizResult> enviarQuiz({
+    required String intentoId,
+    required List<QuizAnswerSubmission> respuestas,
+  }) async {
+    return QuizResult(
+      intentoId: intentoId,
+      puntaje: 5,
+      total: 5,
+      porcentaje: 100,
+      respuestas: [
+        for (var i = 1; i <= 5; i++)
+          QuizQuestionResult(
+            numero: i,
+            pregunta: 'Pregunta $i de comprensión',
+            opciones: const ['Opción A', 'Opción B', 'Opción C', 'Opción D'],
+            indiceSeleccionado: 0,
+            indiceCorrecto: 0,
+            esCorrecta: true,
+            explicacion: 'Explicación de la pregunta $i',
+          ),
+      ],
+    );
+  }
+}
+
+class _FallbackQuizRepository implements QuizRepository {
+  @override
+  Future<List<QuizAttemptSummary>> obtenerResultadosPorDocente() async =>
+      const [];
+
+  @override
+  Future<Map<String, QuizAttemptSummary>> obtenerResumenesQuizPorEstudiante(
+    String estudianteId,
+  ) async => const {};
+
+  @override
+  Future<QuizAttemptSummary?> obtenerResumenQuizPorCuento(
+    String cuentoId,
+  ) async => null;
+}
 
 class _HomeRouter extends StatefulWidget {
-  const _HomeRouter();
+  final AuthService? authService;
+  final CuentoRepository? cuentoRepository;
+  final AiService? aiService;
+  final ImageService? imageService;
+  final NarrativaService? narrativaService;
+  final DocumentService? documentService;
+  final QuizService? quizService;
+  final QuizRepository? quizRepository;
+
+  const _HomeRouter({
+    this.authService,
+    this.cuentoRepository,
+    this.aiService,
+    this.imageService,
+    this.narrativaService,
+    this.documentService,
+    this.quizService,
+    this.quizRepository,
+  });
 
   @override
   State<_HomeRouter> createState() => _HomeRouterState();
@@ -98,48 +368,86 @@ class _HomeRouterState extends State<_HomeRouter> {
   bool _procesandoPdf = false;
   bool _creandoCuento = false;
 
-  late final SupabaseAiService _aiService;
+  bool _esModoHistorico = false;
+  int _studentHomeTab = 0;
+  QuizAttemptSummary? _intentoQuizActual;
+
+  late final AiService _aiService;
 
   late final NarrativaService _narrativaService;
 
   late final DocumentService _documentService;
 
-  late final CuentoRepositorySupabase _cuentoRepository;
+  late final CuentoRepository _cuentoRepository;
 
   late final StoryController _storyController;
 
   late final AuthService _authService;
 
+  late final QuizService _quizService;
+
+  late final QuizRepository _quizRepository;
+
   @override
   void initState() {
     super.initState();
 
-    _authService = AuthService(client: Supabase.instance.client);
+    SupabaseClient? client;
+    try {
+      client = Supabase.instance.client;
+    } catch (_) {
+      client = null;
+    }
 
-    _narrativaService = NarrativaService();
+    _authService =
+        widget.authService ??
+        (client != null ? AuthService(client: client) : AuthService());
 
-    _documentService = DocumentService();
+    _narrativaService = widget.narrativaService ?? NarrativaService();
 
-    _cuentoRepository = CuentoRepositorySupabase(
-      client: Supabase.instance.client,
-    );
-    _aiService = SupabaseAiService(client: Supabase.instance.client);
+    _documentService = widget.documentService ?? DocumentService();
+
+    _cuentoRepository =
+        widget.cuentoRepository ??
+        (client != null
+            ? CuentoRepositorySupabase(client: client)
+            : CuentoRepositoryMemoria());
+    _aiService =
+        widget.aiService ??
+        (client != null
+            ? SupabaseAiService(client: client)
+            : _FallbackAiService());
     _storyController = StoryController(
       narrativaService: _narrativaService,
       cuentoRepository: _cuentoRepository,
       documentService: _documentService,
       aiService: _aiService,
-      imageService: SupabaseImageService(client: Supabase.instance.client),
+      imageService:
+          widget.imageService ??
+          (client != null ? SupabaseImageService(client: client) : null),
     );
+    _quizService =
+        widget.quizService ??
+        (client != null
+            ? SupabaseQuizService(client: client)
+            : _FallbackQuizService());
+    _quizRepository =
+        widget.quizRepository ??
+        (client != null
+            ? QuizRepositorySupabase(client: client)
+            : _FallbackQuizRepository());
   }
 
   // =========================================================
   // INICIO
   // =========================================================
 
-  void _irInicio() {
+  void _irInicio({int tab = 0}) {
     setState(() {
       _pantalla = AppScreen.home;
+      _studentHomeTab = tab;
+      _esModoHistorico = false;
+      _intentoQuizActual = null;
 
       _cuento = null;
 
@@ -616,11 +924,43 @@ class _HomeRouterState extends State<_HomeRouter> {
         return StoryView(
           cuento: cuento,
           controller: _storyController,
-          onSalir: _irInicio,
+          modoHistorico: _esModoHistorico,
+          intentoQuiz: _intentoQuizActual,
+          onSalir: () => _irInicio(tab: _esModoHistorico ? 1 : 0),
           onNarrar: _narrarDemo,
-          onIrEvaluacion: () {
-            debugPrint('Pendiente: QuizView');
+          onIrEvaluacion: () async {
+            if (!_esModoHistorico) {
+              try {
+                await _cuentoRepository.guardarCuento(cuento);
+              } catch (e) {
+                debugPrint('Aviso guardando cuento previo al quiz: $e');
+              }
+            }
+            if (mounted) {
+              setState(() {
+                _pantalla = AppScreen.quiz;
+              });
+            }
           },
+        );
+
+      // =====================================================
+      // QUIZ DE COMPRENSIÓN
+      // =====================================================
+
+      case AppScreen.quiz:
+        final cuento = _cuento;
+
+        if (cuento == null) {
+          return _buildStudentHome(perfil);
+        }
+
+        return QuizView(
+          cuentoId: cuento.id,
+          tituloCuento: cuento.titulo,
+          quizService: _quizService,
+          onVolver: () => _irInicio(tab: 1),
+          onFinalizado: () => _irInicio(tab: 1),
         );
 
       // =====================================================
@@ -636,6 +976,8 @@ class _HomeRouterState extends State<_HomeRouter> {
     return StudentHomeView(
       perfil: perfil,
       cuentoRepository: _cuentoRepository,
+      quizRepository: _quizRepository,
+      tabInicial: _studentHomeTab,
       onDibujar: () {
         setState(() {
           _dibujoDesdePdf = false;
@@ -648,10 +990,27 @@ class _HomeRouterState extends State<_HomeRouter> {
           _pantalla = AppScreen.document;
         });
       },
-      onAbrirCuento: (cuento) {
+      onAbrirCuento: (cuento) async {
+        QuizAttemptSummary? summary;
+        try {
+          summary = await _quizRepository.obtenerResumenQuizPorCuento(
+            cuento.id,
+          );
+        } catch (_) {}
+        if (!mounted) return;
         setState(() {
           _cuento = cuento;
+          _esModoHistorico = true;
+          _intentoQuizActual = summary;
           _pantalla = AppScreen.story;
+        });
+      },
+      onVerResultado: (cuento, intento) {
+        setState(() {
+          _cuento = cuento;
+          _esModoHistorico = true;
+          _intentoQuizActual = intento;
+          _pantalla = AppScreen.quiz;
         });
       },
       onLogout: () async {

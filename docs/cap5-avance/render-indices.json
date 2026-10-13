@@ -1,0 +1,53 @@
+{
+  "indices_word": {
+    "TablesOfContents": 1,
+    "TablesOfFigures": 2
+  },
+  "indices": [
+    {
+      "titulo": "ÍNDICE GENERAL",
+      "bloques_anteriores": 1,
+      "bloques_actualizados": 1
+    },
+    {
+      "titulo": "ÍNDICE DE TABLAS",
+      "bloques_anteriores": 1,
+      "bloques_actualizados": 1
+    },
+    {
+      "titulo": "ÍNDICE DE FIGURAS",
+      "bloques_anteriores": 6,
+      "bloques_actualizados": 19
+    }
+  ],
+  "entradas_nuevas_formato_indice": 24,
+  "bookmarks_agregados": 167,
+  "estilos_agregados": [],
+  "parrafos_no_coincidentes_en_temporal_Word_no_importados": [
+    "La interacción actual de Quiz sigue QuizView → SupabaseQuizService → generar-quiz/enviar-quiz: cinco preguntas con cuatro alternativas, envío conjunto de cinco selecciones y corrección en servidor, puntaje de 0 a 5, porcentaje round(aciertos / 5 × 100) y explicaciones finales. QuizRepositorySupabase consulta el historial. PDFController, PDFService, StorageService y ContentSafetyService conservan aquí responsabilidades del diseño objetivo; no se acredita su realización íntegra ni se niegan capacidades existentes por diferencias de nombre."
+  ],
+  "paginas_pdf": 213,
+  "inicio_cap5_pdf": 166,
+  "referencias_pdf": 207,
+  "hallazgos_paginas": {
+    "CAPÍTULO V: IMPLEMENTACIÓN": [
+      6,
+      166
+    ],
+    "5.1. Alcance": [
+      6,
+      166
+    ],
+    "5.11. Balance": [
+      6,
+      206
+    ],
+    "REFERENCIAS": [
+      6,
+      207
+    ]
+  },
+  "fuente_sha256_despues": "89d06373398c6afdd2f6c848383f8685ee59d1b18f45ab5a62d8ee06c6ecee80",
+  "copia_sha256": "011399a5c4d782dc48149568e96c0556d4e03c9263b804a9625de2f248049e80",
+  "pdf_sha256": "6bbe6afc1e525bd13e9a275d4fcb7ae6c633b7fd2aa45a5d94c705db0856bea9"
+}

@@ -1,0 +1,43 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+package "main.dart\ncomposición y navegación" as MAIN
+package "lib/views\n+ views/components" as V
+package "lib/controllers" as C
+package "lib/models" as M
+package "lib/services" as S
+package "lib/repositories" as R
+package "lib/utils" as U
+package "lib/widgets" as W
+package "SDK / plugins externos" as EXT
+package "supabase/functions\n+ _shared" as F
+MAIN ..> V
+MAIN ..> C
+MAIN ..> S
+MAIN ..> R
+V ..> C
+V ..> S
+V ..> R
+V ..> M
+V ..> W
+V ..> EXT : TeacherHomeView: consultas directas
+C ..> S
+C ..> R
+C ..> M
+C ..> U : visual_description_helper
+C ..> W : decodificar Data URI
+S ..> M
+S ..> EXT
+R ..> M
+R ..> EXT
+M ..> W : Cuento importa IlustracionEscenaWidget
+W ..> EXT
+F ..> EXT : supabase-js / APIs externas
+legend bottom
+Dependencias relevantes verificadas por imports; no inventario exhaustivo.
+La distribución sigue responsabilidades, con excepciones a la separación estricta:
+modelo/controlador dependen del widget para imágenes y la vista docente del SDK.
+No se acredita ausencia universal de ciclos ni aislamiento experimental completo.
+endlegend
+@enduml

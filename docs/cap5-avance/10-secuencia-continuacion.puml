@@ -1,0 +1,46 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+participant StoryView as V
+participant StoryController as C
+participant ContextoNarrativoService as N
+participant AiService as A
+participant CuentoRepository as R
+V -> C : generarSiguienteEscena\n(cuento, escenaActual, decision)
+alt guarda rechazada
+ C --> V : ArgumentError / StateError
+else guardas satisfechas
+ C -> C : activar bloqueo; preparar numeroNuevaEscena
+ C -> N : construirContexto(cuento, maxCaracteres=5500)
+ N --> C : contexto (poda; no tope estricto garantizado)
+ loop hasta maxReintentos+1; por defecto 3 intentos
+  C -> A : generarEscena(contexto, decisión,\nnúmero, última, fuente, ...)
+  alt resultado válido; cierre conclusivo si última
+   A --> C : GeneratedScene
+   C -> C : aceptar y salir del bucle
+  else fallo / timeout 45 s / final abierto
+   A --> C : error o resultado rechazado
+   C -> C : esperar 600 ms si queda reintento
+  end
+ end
+ alt hay resultado aceptado
+  C -> C : sanitizar nombre; registrar decisión; agregar escena
+  C -> R : guardarCuento(cuento)
+  R --> C : void / excepción (sin transacción integral)
+  C --> V : Escena / error de persistencia
+ else intentos agotados
+  C --> V : StateError; no agregar escena ficticia
+ end
+ C -> C : finally: liberar bloqueo
+end
+opt ilustración solicitada y ImageService disponible
+ V -> C : asegurarIlustracionEscena(cuento, numeroEscena)
+ C --> V : URL / Data URI / null; 401 y 403 se propagan
+end
+note over C,R
+CU-09. Guardas: no escena anterior, final, opción inválida ni bloqueo activo.
+Escena ya existente: reintentar guardar y retornar sin IA,
+si se alcanza esa comprobación tras las guardas.
+end note
+@enduml

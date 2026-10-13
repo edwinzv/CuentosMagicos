@@ -1,0 +1,49 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+hide empty methods
+class profiles <<tabla; panel a>> {
+ id : uuid PK
+}
+class cuentos <<tabla; panel a>> {
+ id : text PK
+}
+class aulas <<tabla; panel a>> {
+ id : uuid PK
+}
+class quiz_intentos <<tabla>> {
+ id : uuid PK
+ cuento_id : text FK NOT NULL
+ estudiante_id : uuid FK NOT NULL
+ aula_id : uuid FK nullable
+ estado : text CHECK
+ puntaje : smallint 0..5 nullable
+ total_preguntas : smallint = 5
+ porcentaje : numeric 0..100 nullable
+ created_at : timestamptz
+ completed_at : timestamptz nullable
+ UNIQUE(cuento_id, estudiante_id)
+}
+class quiz_respuestas <<tabla>> {
+ id : uuid PK
+ intento_id : uuid FK NOT NULL
+ numero_pregunta : smallint 1..5
+ pregunta : text NOT NULL
+ opciones : jsonb array length=4
+ indice_correcto : smallint 0..3
+ indice_seleccionado : smallint 0..3 nullable
+ es_correcta : boolean nullable
+ explicacion : text NOT NULL
+ UNIQUE(intento_id, numero_pregunta)
+}
+cuentos "1" -- "0..*" quiz_intentos
+profiles "1" -- "0..*" quiz_intentos
+aulas "0..1" -- "0..*" quiz_intentos
+quiz_intentos "1" -- "0..5" quiz_respuestas
+legend bottom
+Panel (b): Quiz local 20261008, no esquema remoto verificado.
+0..5 es máximo por número 1..5 único; completar exige cinco filas.
+Un intento por pareja cuento/estudiante; no campo de dimensión RF-22.
+endlegend
+@enduml

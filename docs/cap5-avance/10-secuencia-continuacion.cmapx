@@ -1,0 +1,10 @@
+<map id="10-secuencia-continuacion_map" name="10-secuencia-continuacion_map">
+<area shape="rect" id="id1" href="intentos" title="intentos" alt="" coords="25,829,105,850"/>
+<area shape="rect" id="id2" href="guarda" title="guarda" alt="" coords="91,112,179,133"/>
+<area shape="rect" id="id3" href="guardas" title="guardas" alt="" coords="15,174,113,195"/>
+<area shape="rect" id="id4" href="hay" title="hay" alt="" coords="101,650,266,671"/>
+<area shape="rect" id="id5" href="fallo" title="fallo" alt="" coords="439,523,671,543"/>
+<area shape="rect" id="id6" href="resultado" title="resultado" alt="" coords="515,413,804,434"/>
+<area shape="rect" id="id7" href="ilustración" title="ilustración" alt="" coords="107,956,422,977"/>
+<area shape="rect" id="id8" href="hasta" title="hasta" alt="" coords="522,322,871,343"/>
+</map>

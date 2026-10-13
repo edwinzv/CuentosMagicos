@@ -1,0 +1,47 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+participant "DocumentView + router" as V
+participant StoryController as C
+participant "DocumentService /\nNarrativaService" as S
+participant "AiService\n(SupabaseAiService)" as A
+participant CuentoRepository as R
+V -> C : procesarPdf(nombreArchivo, pdfBytes)
+C -> S : procesarPdf(nombreArchivo, pdfBytes)
+S --> C : PdfStoryData / error (sin OCR)
+break PDF inválido o sin texto
+ C --> V : error; no avanzar
+end
+C -> A : analizarHistoria(textoExtraido)
+A --> C : StoryAnalysis / error
+break análisis fallido
+ C --> V : error; no avanzar
+end
+C --> V : PdfStoryData enriquecido
+V -> C : crearCuentoDesdePdfProcesadoDemo\n(id, datosPdf, personalizacion)
+C -> A : generarEscenaInicial\n(título, personaje, textoFuente, ...)
+alt respuesta aceptada
+ A --> C : GeneratedScene
+ C -> C : sustituir nombre si corresponde; crear Escena
+else fallo en generación inicial
+ C -> S : crearEscenaInicialDesdePdfDemo\n(nombrePersonaje, datosPdf)
+ S --> C : Escena de respaldo
+ C -> C : sustituir nombre si corresponde
+end
+C -> C : cuento.agregarEscena(escenaInicial)
+C -> R : guardarCuento(cuento)
+alt guardado correcto
+ R --> C : void
+ C --> V : Cuento
+else fallo de guardado
+ R --> C : excepción
+ C --> V : error; no confirmación integral
+end
+note over V,R
+Panel (b), CU-04–CU-06: PDF con IA y respaldo inicial.
+Servicios S: DocumentService para extracción y NarrativaService para demo.
+router = _HomeRouterState; personalización ya confirmada al crear.
+... omite contexto original detallado en contratos de 5.9.
+end note
+@enduml

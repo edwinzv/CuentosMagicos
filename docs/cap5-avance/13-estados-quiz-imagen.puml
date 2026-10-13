@@ -1,0 +1,32 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+state "QuizView — estados derivados de flags" as Q {
+ [*] --> Inicio
+ state Inicio <<choice>>
+ Inicio --> Resultado : [resultadoInicial != null] /\n_resultado = widget.resultadoInicial;\n_intentoId = widget.resultadoInicial!.intentoId;\n_cargando = false
+ Inicio --> Carga : [resultadoInicial == null] / _iniciarQuiz()
+ Carga --> Respondiendo : generarQuiz ~[en_progreso~] / guardar preguntas
+ Carga --> Resultado : [completado con resultado]
+ Carga --> FalloCarga : excepción / _error; _cargando=false
+ FalloCarga --> Carga : reintentar / _iniciarQuiz()
+ Respondiendo : seleccionar(indiceOpcion) ~[hay preguntas && !_enviando~] /\n_selecciones[preguntaActual.numero] = indiceOpcion
+ Respondiendo : siguiente ~[hay preguntas && selección actual && no última~] /\n_indiceActual++
+ Respondiendo : anterior ~[_indiceActual > 0~] / _indiceActual--
+ Respondiendo --> Enviando : finalizar ~[todas seleccionadas~]
+ Enviando --> Resultado : enviarQuiz correcto / _resultado; _enviando=false
+ Enviando --> Respondiendo : excepción / snackbar; _enviando=false
+ Resultado --> [*] : volver al historial
+ Respondiendo --> [*] : volver
+}
+legend bottom
+Panel (a): Quiz. Abstracciones de flags, no enum del código.
+Inicio es pseudestado de elección: las guardas son excluyentes.
+Respondiendo: transiciones internas, sin salida/cambio de estado.
+preguntaActual = _preguntas[_indiceActual]; hay preguntas = !_preguntas.isEmpty.
+selección actual = _selecciones.containsKey(preguntaActual.numero).
+no última = _indiceActual < _preguntas.length - 1.
+No acredita ejecución.
+endlegend
+@enduml

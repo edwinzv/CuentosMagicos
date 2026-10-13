@@ -1,0 +1,37 @@
+{
+  "unidad": "CAP5-AVANCE",
+  "ciclo": 2,
+  "dictamen_recibido": "CAMBIOS NECESARIOS, comunicado por el usuario; tres hallazgos autorizados",
+  "segunda_revision_independiente": "PENDIENTE",
+  "respaldo": "C:\\Users\\Ignacia\\AppData\\Local\\Temp\\opencode\\cap5-ciclo2-base.zip",
+  "fuente_sha256_despues": "89d06373398c6afdd2f6c848383f8685ee59d1b18f45ab5a62d8ee06c6ecee80",
+  "docx_sha256_antes": "f828f5cc56fa2a653cdd308abb79cfe7c57729e3e750c4ea2b57e0ff920d33cb",
+  "docx_sha256_despues": "011399a5c4d782dc48149568e96c0556d4e03c9263b804a9625de2f248049e80",
+  "pdf_sha256_antes": "bbd6764bec2182654f8c339974ab2aca2e3e39e4a3fb9d991292fa5b0dd252e4",
+  "pdf_sha256_despues": "6bbe6afc1e525bd13e9a275d4fcb7ae6c633b7fd2aa45a5d94c705db0856bea9",
+  "miembros_docx_modificados_frente_entrega_anterior": [
+    "word/document.xml",
+    "word/media/cap5-13-estados-quiz-imagen.png"
+  ],
+  "bloques_comparados_incluido_cap5_fuera_indices": 1236,
+  "bloques_modificados": [
+    {
+      "bloque_antes": 1129,
+      "bloque_despues": 1129,
+      "tipo": "p",
+      "texto_antes": "",
+      "texto_despues": ""
+    },
+    {
+      "bloque_antes": 1153,
+      "bloque_despues": 1153,
+      "tipo": "tbl",
+      "texto_antes": "GrupoEstructura comprobada en SQLLímite o condiciónprofiles / aulasprofiles.id uuid PK/FK a auth.users; rol docente/estudiante; codigo_acceso único; aulas.docente_id FKLa existencia del perfil no acredita proceso institucional; trigger protege campos sensibles del perfil.aula_estudiantesPK compuesta aula_id/estudiante_id; ambas FK; único aula_id/codigo_localRelación de matrícula; no se inventa CRUD completo en la interfaz.cuentosid text PK; estudiante_id y aula_id FK nullable; texto_fuente y campos del análisisNulabilidad admite datos sin asociación; es_demo no convierte demos en datos educativos reales.escenas / decisiones_narrativasFK cuento_id; únicos por cuento_id/numero y cuento_id/numero_escena; escenas.opciones jsonbnumero_escena de decisiones no tiene FK a escenas; vínculo se interpreta por cuento y número.quiz_intentosUUID PK; FK cuento, estudiante y aula nullable; único cuento/estudiante; estado en_progreso/completadototal_preguntas=5; puntaje 0–5 y porcentaje 0–100; completed_at nullable.quiz_respuestasUUID PK; FK intento; número 1–5 único por intento; opciones array de cuatro; índices 0–3Cinco filas como condición funcional, no obligación de cardinalidad mínima en SQL. No campo de dimensión RF-22.RLS y privilegiosPolíticas locales para propietario y docente autorizado; Quiz SELECT para authenticated, escrituras por service_roleLas respuestas del estudiante se consultan al completar el intento. Migraciones y políticas remotas efectivas no verificadas en esta unidad.",
+      "texto_despues": "GrupoEstructura comprobada en SQLLímite o condiciónprofiles / aulasprofiles.id uuid PK/FK a auth.users; rol docente/estudiante; codigo_acceso único; aulas.docente_id FKLa existencia del perfil no acredita proceso institucional; trigger protege campos sensibles del perfil.aula_estudiantesPK compuesta aula_id/estudiante_id; ambas FK; único aula_id/codigo_localRelación de matrícula; no se inventa CRUD completo en la interfaz.cuentosid text PK; estudiante_id y aula_id FK nullable; texto_fuente y campos del análisisNulabilidad admite datos sin asociación; es_demo no convierte demos en datos educativos reales.escenas / decisiones_narrativasFK cuento_id; únicos por cuento_id/numero y cuento_id/numero_escena; escenas.opciones jsonbnumero_escena de decisiones no tiene FK a escenas; vínculo se interpreta por cuento y número.quiz_intentosUUID PK; FK cuento y estudiante NOT NULL; FK aula nullable; único cuento/estudiante; estado en_progreso/completadototal_preguntas=5; puntaje 0–5 y porcentaje 0–100; completed_at nullable.quiz_respuestasUUID PK; FK intento; número 1–5 único por intento; opciones array de cuatro; índices 0–3Cinco filas como condición funcional, no obligación de cardinalidad mínima en SQL. No campo de dimensión RF-22.RLS y privilegiosPolíticas locales para propietario y docente autorizado; Quiz SELECT para authenticated, escrituras por service_roleLas respuestas del estudiante se consultan al completar el intento. Migraciones y políticas remotas efectivas no verificadas en esta unidad."
+    }
+  ],
+  "otros_18_paneles": "Recursos binariamente idénticos",
+  "relaciones_estilos_numbering_otros_miembros": "Binariamente idénticos a la entrega anterior",
+  "markdown_cap5": "Solo cambia la frase autorizada de tabla 38",
+  "codigo_quiz_y_migracion": "Intactos"
+}

@@ -1,0 +1,877 @@
+P1
+ 
+ 
+UNIVERSIDAD CATÓLICA SEDES SAPIENTIAE 
+ 
+ 
+ 
+ 
+ 
+FACULTAD DE INGENIERÍA 
+ 
+Aplicación educativa de escritorio basada en 
+gamificación para mejorar la comprensión lectora en 
+estudiantes de educación primaria del Scorza College 
+TESIS PARA OPTAR EL TÍTULO PROFESIONAL DE 
+INGENIERO DE SISTEMAS 
+AUTOR 
+Zagaceta Vasquez Romulo Jeampierre 
+ASESOR 
+ 
+Lima, Perú 
+2026 
+ 
+
+P2
+ 
+ 
+ÍNDICE GENERAL 
+ 
+ÍNDICE GENERAL ............................................................................................. 2 
+ÍNDICE DE TABLAS .......................................................................................... 6 
+ÍNDICE DE FIGURAS ........................................................................................ 9 
+DEDICATORIA ................................................................................................. 10 
+AGRADECIMIENTO ........................................................................................ 11 
+Resumen ............................................................................................................. 12 
+Abstract ............................................................................................................... 12 
+Introducción ........................................................................................................ 14 
+Capítulo 1: Planteamiento Metodológico ........................................................... 18 
+1.1. Diagnóstico Estratégico ........................................................................... 18 
+1.1.1. Descripción de la empresa / organización ........................................ 18 
+1.1.2. Visión y Misión ................................................................................ 19 
+1.1.3. Análisis FODA ................................................................................. 19 
+1.1.4. Organización de la institución .......................................................... 21 
+1.2 Planteamiento del Problema: .................................................................... 21 
+1.3. Formulación del problema ....................................................................... 26 
+1.3.1. Problema general .............................................................................. 26 
+1.3.2. Problemas específicos ....................................................................... 26 
+1.4 OBJETIVOS ............................................................................................. 27 
+1.4.1. OBJETIVO GENERAL .................................................................... 27 
+1.4.2. OBJETIVOS ESPECÍFICOS ........................................................... 27 
+1.5. Justificación e importancia del proyecto ................................................. 28 
+1.5.1. Justificación del proyecto ................................................................. 28 
+1.5.2. Importancia del proyecto .................................................................. 30 
+
+P3
+ 
+ 
+1.6. Análisis de Viabilidad de la Investigación .............................................. 32 
+1.6.1. Viabilidad técnica ............................................................................. 32 
+1.6.2. Viabilidad operativa .......................................................................... 33 
+1.6.3. Viabilidad económica ....................................................................... 35 
+1.7. Límites y Alcances .................................................................................. 40 
+1.7.1. Límites .............................................................................................. 40 
+1.7.2. Alcances ............................................................................................ 41 
+1.8. Propuesta .................................................................................................. 43 
+1.9. Organización del Informe ........................................................................ 44 
+CAPÍTULO II: MARCO TEÓRICO .................................................................. 45 
+2.1.  
+Antecedentes de la investigación ...................................................... 45 
+Antecedentes Internacionales ..................................................................... 45 
+Antecedentes Nacionales ............................................................................ 51 
+2.2. Bases teóricas ........................................................................................ 56 
+2.2.1. Evolución .......................................................................................... 56 
+2.2.2 Conceptos básicos .............................................................................. 60 
+2.2.3 Clasificación ...................................................................................... 65 
+2.2.4 Formas de implementación ................................................................ 67 
+2.2.5 Tecnologías asociadas ....................................................................... 72 
+2.2.6 Aspectos legales y éticos ................................................................... 80 
+2.3 Definición de términos básicos ................................................................. 84 
+CAPÍTULO III: DISEÑO DE LA SOLUCIÓN ................................................. 87 
+
+P4
+ 
+ 
+3.1 Modelo conceptual de la solución ............................................................ 87 
+3.2 Funcionamiento lógico de la propuesta .................................................... 92 
+3.3 Métodos, modelos o algoritmos candidatos ............................................ 101 
+3.3.1. Gemini 3.8 Flash ............................................................................. 102 
+3.3.2. GPT-5.6 Sol .................................................................................... 103 
+3.3.3. Claude Sonnet 5.5 ........................................................................... 103 
+3.4 Comparación de candidatos .................................................................... 104 
+3.4.1 Definición de criterios ..................................................................... 106 
+3.4.2 Valoración de criterios ..................................................................... 107 
+3.4.3. Registro previsto de resultados experimentales .............................. 110 
+3.4.4. Matriz de decisión ponderada ......................................................... 111 
+3.5 Determinación del modelo de la solución .............................................. 112 
+3.6 Selección de la metodología de desarrollo ............................................. 114 
+3.7. Arquitectura de la solución .................................................................... 117 
+3.7.1. Capa View ...................................................................................... 118 
+3.7.2. Capa Controller ............................................................................... 119 
+3.7.3. Capa Model ..................................................................................... 119 
+3.7.4. Capa Services .................................................................................. 120 
+3.7.5. Capa Repository .............................................................................. 121 
+3.7.6. Infraestructura ................................................................................. 121 
+3.7.7. Fichas de interacción de las vistas documentadas .......................... 123 
+3.8 Ingeniería de requisitos ........................................................................... 124 
+
+P5
+ 
+ 
+3.8.1 Requerimientos funcionales ............................................................. 124 
+3.8.2 Requerimientos no funcionales ........................................................ 127 
+3.9 Historias de usuario ................................................................................ 132 
+3.10 Criterios de aceptación ......................................................................... 135 
+3.10.1. HU-01 – Acceder a Cuentos Mágicos .......................................... 135 
+3.10.2. HU-02 – Seleccionar la modalidad de creación ........................... 135 
+3.10.3. HU-03 – Crear un dibujo .............................................................. 136 
+3.10.4. HU-04 – Cargar un documento PDF ............................................ 136 
+3.10.5. HU-05 – Ingresar el nombre del personaje ................................... 137 
+3.10.6. HU-06 – Generar un cuento personalizado .................................. 138 
+3.10.7. HU-07 – Utilizar contenido apropiado ......................................... 138 
+3.10.8. HU-08 – Visualizar las escenas del cuento ................................... 139 
+3.10.9. HU-09 – Escuchar la narración ..................................................... 140 
+3.10.10. HU-10 – Elegir cómo continúa la historia .................................. 140 
+3.10.11. HU-11 – Continuar la historia según mi elección ...................... 141 
+3.10.12. HU-12 – Resolver actividades de comprensión .......................... 141 
+3.10.13. HU-13 – Recibir retroalimentación ............................................ 142 
+3.10.14. HU-14 – Conocer el resultado final ............................................ 143 
+3.10.15. HU-15 – Conservar el resultado de la actividad ......................... 143 
+3.10.16. HU-16 – Generar el cuento en PDF ............................................ 144 
+3.10.17. HU-17 – Iniciar una nueva experiencia ...................................... 145 
+3.11. Matriz de trazabilidad .......................................................................... 145 
+
+P6
+ 
+ 
+3.11.1. Verificación del software (OE3) ................................................... 148 
+3.11.2. Evaluación educativa (OE1 y OE4) .............................................. 162 
+3.12. Síntesis del diseño de la solución ........................................................ 163 
+CAPÍTULO V: IMPLEMENTACIÓN — AVANCE DEL PROTOTIPO ...... 166 
+5.1. Alcance del avance y estados de implementación ................................. 166 
+5.2. Negocio: inventario de respaldo institucional ....................................... 168 
+5.3. Casos de uso del sistema y correspondencia con los requisitos ............ 168 
+5.4. Análisis y diseño: clases, secuencias y estados ..................................... 174 
+5.5. Datos y persistencia ............................................................................... 189 
+5.6. Arquitectura implementada y topología configurada ............................ 192 
+5.7. Trazabilidad tecnológica y límites de inferencia ................................... 197 
+5.8. Correspondencia diseño–código y procedencia del repositorio ............ 198 
+5.9. Interfaces, estado, contratos y seguridad entre capas ............................ 199 
+5.10. Pruebas y clasificación de evidencia disponible .................................. 201 
+5.11. Balance del avance frente a los criterios 12–20 ................................... 203 
+REFERENCIAS ............................................................................................... 204 
+ 
+ÍNDICE DE TABLAS 
+Tabla 1 Análisis FODA ..................................................................................... 20 
+Tabla 2 Escenario máximo condicionado de utilización ................................... 36 
+Tabla 3 Hipótesis de consumo de tokens durante la intervención ..................... 36 
+Tabla 4 Presupuesto tecnológico por estimar .................................................... 38 
+Tabla 5 Volúmenes y beneficios funcionales previstos ..................................... 39 
+
+P7
+ 
+ 
+Tabla 6 Síntesis de antecedentes internacionales sobre comprensión y 
+decodificación ................................................................................................................. 50 
+Tabla 7 Síntesis de antecedentes nacionales ...................................................... 55 
+Tabla 8 Clasificación de elementos de gamificación digital ............................. 65 
+Tabla 9 Niveles de comprensión y ejemplos de diseño ..................................... 66 
+Tabla 10 Tecnologías y condiciones de integración .......................................... 79 
+Tabla 11 Modelos candidatos y configuración prevista para comparación textual
+ ...................................................................................................................................... 104 
+Tabla 12 Corpus experimental: casos y controles ........................................... 105 
+Tabla 13 Criterios experimentales y pesos ...................................................... 106 
+Tabla 14 Escala C1: compatibilidad estructural .............................................. 107 
+Tabla 15 Escala C2: fidelidad y calidad narrativa ........................................... 108 
+Tabla 16 Escala C3: restricciones educativas e idioma ................................... 108 
+Tabla 17 Escala C4: respuesta completa .......................................................... 109 
+Tabla 18 Escala C5: costo por original aceptable ............................................ 110 
+Tabla 19 Registro de resultados experimentales .............................................. 111 
+Tabla 20 Matriz ponderada de comparación experimental .............................. 111 
+Tabla 21 Fases del desarrollo iterativo e incremental ...................................... 114 
+Tabla 22 Incrementos, responsables y cierre previsto ..................................... 116 
+Tabla 23 Vistas y responsabilidades del diseño ............................................... 118 
+Tabla 24 Controladores y responsabilidades del diseño .................................. 119 
+Tabla 25 Modelos de información del diseño .................................................. 120 
+Tabla 26 Servicios y responsabilidades del diseño .......................................... 120 
+Tabla 27 Repositorios y responsabilidades del diseño .................................... 121 
+Tabla 28 Fichas de interacción previstas ......................................................... 123 
+
+P8
+ 
+ 
+Tabla 29 Requerimientos funcionales (32) ...................................................... 124 
+Tabla 30 Requerimientos no funcionales (18) ................................................. 127 
+Tabla 31 Historias, requisitos, objetivos y aceptación ..................................... 146 
+Tabla 32 Plan de verificación RF/RNF y evidencias esperadas ...................... 149 
+Tabla 33 Alcance observable del prototipo y límites de acreditación ............. 166 
+Tabla 34 Respaldo disponible y faltantes para el modelado del negocio ........ 168 
+Tabla 35 Matriz RF–CU–componente y estado del alcance ............................ 171 
+Tabla 36 Especificaciones resumidas de CU: flujo principal y alternos 
+comprobables ................................................................................................................ 172 
+Tabla 37 Correspondencia del análisis con el diseño y persistencia ............... 178 
+Tabla 38 Claves, restricciones y acceso definidos localmente ........................ 191 
+Tabla 39 Trazabilidad CU–RF–clase–servicio–tabla–prueba y artefacto UML
+ ...................................................................................................................................... 197 
+Tabla 40 Procedencia y verificaciones del repositorio local ........................... 198 
+Tabla 41 Contratos de integración, esperas y errores localizados ................... 200 
+Tabla 42 Pruebas, esperado, obtenido, fuente y alcance probatorio ................ 201 
+Tabla 43 Balance documental y pendientes de los criterios de implementación
+ ...................................................................................................................................... 203 
+ 
+
+P9
+ 
+ 
+ÍNDICE DE FIGURAS 
+Figura 1 Estructura organizacional del Scorza College ..................................... 21 
+Figura 2 Evolución de la gamificación en el ámbito educativo ........................ 59 
+Figura 3 Modelo conceptual de la solución Cuentos Mágicos .......................... 92 
+Figura 4 Flujo lógico de funcionamiento de Cuentos Mágicos ....................... 101 
+Figura 5 Arquitectura de software de Cuentos Mágicos ................................. 118 
+Figura 6 Casos de uso del sistema: alcance actual y exportación pendiente ... 170 
+Figura 7 Clases de análisis derivadas de las responsabilidades del prototipo . 175 
+Figura 8 Clases de diseño y contratos reales del núcleo narrativo y Quiz ...... 176 
+Figura 9 Secuencia de creación: dibujo demo, PDF con IA y respaldo inicial 179 
+Figura 10 Secuencia de continuación: guardas, contexto, reintentos y persistencia
+ ...................................................................................................................................... 180 
+Figura 11 Secuencia de Quiz: preparación, reutilización y corrección en servidor
+ ...................................................................................................................................... 182 
+Figura 12 Estados de navegación y ciclo de lectura de StoryView ................. 184 
+Figura 13 Estados derivados del Quiz y estados locales de ilustración ........... 186 
+Figura 14 Estados declarados y transiciones localizadas de NarracionService 188 
+Figura 15 Modelo de datos físico parcial derivado de las migraciones locales190 
+Figura 16 Componentes e interfaces provistas y requeridas del prototipo ...... 193 
+Figura 17 Nodos, artefactos y protocolos de la configuración, sin despliegue 
+acreditado...................................................................................................................... 194 
+Figura 18 Dependencias relevantes entre paquetes y excepciones de separación 
+por capas ....................................................................................................................... 196 
+ 
+ 
+ 
+
+P10
+ 
+ 
+ 
+DEDICATORIA 
+Dedico el presente trabajo a Dios, por brindarme fortaleza, sabiduría y 
+perseverancia durante mi formación profesional. Asimismo, lo dedico a mi madre y a mis 
+familiares, quienes siempre estuvieron apoyándome, alentándome y acompañándome en 
+cada etapa de este camino, siendo un pilar fundamental para alcanzar esta meta. 
+ 
+ 
+
+P11
+ 
+ 
+AGRADECIMIENTO 
+Agradezco a Dios por brindarme la fortaleza, sabiduría y perseverancia necesarias 
+para continuar mi formación profesional y desarrollar la presente investigación. 
+Asimismo, expreso mi más sincero agradecimiento a mi madre y a mis familiares, 
+quienes me brindaron su apoyo incondicional, motivación y confianza durante esta etapa. 
+De igual manera, agradezco a mis docentes por sus enseñanzas, orientación y 
+aportes académicos, así como a todas las personas que contribuyeron directa o 
+indirectamente al desarrollo de esta investigación. 
+ 
+
+P12
+ 
+ 
+Resumen 
+La presente investigación tendrá como objetivo determinar en qué medida una 
+aplicación educativa de escritorio basada en gamificación mejora la comprensión lectora 
+de los estudiantes de educación primaria del Scorza College. 
+Cuentos Mágicos permitirá generar cuentos personalizados mediante inteligencia 
+artificial generativa a partir de dibujos o documentos PDF, incorporar imágenes y 
+narración por voz, ofrecer alternativas narrativas y desarrollar actividades de 
+comprensión literal, inferencial y crítico-reflexiva, con retroalimentación inmediata y 
+registro de respuestas. El contenido generado estará sujeto a controles de adecuación 
+educativa. El prototipo incorpora parte de este flujo; las funcionalidades restantes se 
+integrarán progresivamente conforme al diseño tecnológico. 
+El estudio será cuantitativo, aplicado y descriptivo, con diseño preexperimental 
+de un solo grupo. Se prevé incluir mediante censo a una población de 55 estudiantes de 
+cuarto, quinto y sexto grado. Se aplicarán pretest y postest a los mismos estudiantes, sin 
+grupo de control ni de comparación, para establecer si se registra una mejora y en qué 
+medida. La comparación permitirá describir la variación de la comprensión lectora. 
+Palabras clave: gamificación, comprensión lectora, aplicación educativa de 
+escritorio, narrativa interactiva, inteligencia artificial generativa. 
+Abstract  
+This research will aim to determine to what extent a gamification-based desktop 
+educational application improves reading comprehension among Scorza College primary 
+school students. 
+Cuentos Mágicos will generate personalized stories through generative artificial 
+intelligence from drawings or PDF documents, incorporating images and voice narration, 
+
+P199
+ 
+ 
+Elemento 
+Observación comprobada 
+Límite 
+Historia local 
+19 commits; raíz 8e381b8; 
+HEAD 
+9133101; 
+etiqueta 
+v0.1.0 
+No conserva de forma acreditada el historial del 
+origen del ZIP. No se atribuyen las pruebas 
+históricas a HEAD. 
+Seguimiento local 
+HEAD...origin/main = 0/0 en 
+refs locales 
+No demuestra sincronización actual con el 
+servidor; no se hizo fetch, push ni publicación. 
+Archivos 
+integrados 
+QuizView y generar-quiz están 
+en el árbol de trabajo, no en el 
+árbol de HEAD inspeccionado 
+No acreditar que el código vigente completo esté 
+publicado. 
+Reconstrucción y 
+seguridad 
+pubspec y lock existentes; SDK 
+compatible registrado; raíz sin 
+.gitignore en el árbol inicial 
+No entorno reconstruible con un solo comando 
+acreditado, ni ramas experimentales verificadas, 
+ni auditoría exhaustiva de secretos e historial. 
+ 
+Flutter/Windows se corresponde con la plataforma prevista y las capacidades de 
+dibujo, PDF y TTS localizadas. Supabase y PostgreSQL permiten representar las 
+relaciones y consultas del prototipo; los contratos de servicios separan la integración 
+generativa. Estas razones estructurales no equivalen a una comparación tecnológica 
+medida ni a una certificación de reproducción experimental. La selección de modelo 
+textual continúa pendiente conforme al protocolo del capítulo III, sin declarar ganador. 
+5.9. Interfaces, estado, contratos y seguridad entre capas 
+Las interfaces localizadas son LoginView/AuthGate, StudentHomeView, 
+DrawView, DocumentView, CharacterCustomizationView, StoryView, QuizView y 
+TeacherHomeView. Las fichas del capítulo III son previstas; no se dispone de una 
+colección de wireframes y capturas por CU que acredite su correspondencia completa. 
+No se insertan imágenes fabricadas de pantallas: los diagramas de esta entrega son diseño 
+reconstruido, no interfaz ejecutada. 
+El estado del recorrido reside en _HomeRouterState; StoryView mantiene índice, 
+selección, StoryStatus, voz, revelado y estado de imagen por escena. QuizView mantiene 
+preguntas, mapa de selecciones, carga, envío y resultado. Existen componentes en 
+
+P200
+ 
+ 
+views/components y widgets especializados; no se afirma que toda vista tenga 
+responsabilidad única ni que todo manejo de errores sea centralizado. 
+Tabla 41 Contratos de integración, esperas y errores localizados 
+Operación 
+Entrada / salida tipada 
+Espera y manejo localizado 
+analizar-historia 
+texto → StoryAnalysis 
+SupabaseAiService: 85 s; sesión requerida; 
+401/403 diferenciados; otros errores se propagan. 
+generar-escena 
+título, personaje, textoFuente, 
+contextoNarrativo, 
+decisionActual, numeroEscena, 
+esUltimaEscena 
+y 
+contexto 
+original → GeneratedScene 
+Servicio: 85 s; controlador continuación: 45 s por 
+intento. Guardas, sustitución de nombre y 
+validación heurística de cierre. 
+generar-imagen 
+cuentoId, 
+numeroEscena, 
+contenidoEscena, 
+personajePrincipal 
+y 
+referencias base64 opcionales 
+→ imageUrl y metadatos 
+Servicio: 45 s; controlador: 40 s. Reutilización y 
+bloqueo por escena; 401/403 se propagan, error 
+transitorio retorna null. 
+generar-quiz 
+cuentoId → intentoId, estado, 
+preguntas o resultado existente 
+40 s; QuizQuestion solo numero, pregunta y 
+opciones; 
+sin 
+clave 
+antes 
+de 
+finalizar; 
+400/401/403/500/503 según función. 
+enviar-quiz 
+intentoId, respuestas[{numero, 
+indiceSeleccionado}] 
+de 
+longitud 5 → QuizResult 
+30 s; corrección en servidor, total 5, porcentaje y 
+revisión; error de envío informa, no calificación 
+local confirmada. 
+crear-estudiante 
+nombre, aulaId, codigoLocal → 
+datos de registro y acceso 
+TeacherHomeView invoca directamente y acepta 
+200/201; guarda de envío y error de diálogo; sin 
+timeout explícito localizado en esa invocación. 
+Consultas 
+de 
+historial 
+id 
+de 
+estudiante/cuento 
+y 
+relaciones 
+→ 
+Cuento 
+o 
+QuizAttemptSummary 
+Async; algunas excepciones retornan vacío/null; 
+no interceptor universal ni timeout universal 
+acreditados. 
+ 
+El cliente obtiene el token de la sesión activa para invocar servicios protegidos. 
+La configuración local declara verify_jwt=true en seis funciones y el helper compartido 
+valida token con Auth y rol estudiante; otras funciones poseen comprobaciones propias. 
+Esto es definición local, no acreditación de que cada control esté desplegado 
+remotamente. Las claves de proveedor y de servicio se leen del entorno servidor en las 
+rutas revisadas; no se transcriben sus valores ni se certifica una auditoría exhaustiva del 
+historial. 
+
+P201
+ 
+ 
+Las cabeceras CORS observadas usan origen '*'; no cumplen la condición de 
+origen explícito de 19(d). Una aplicación nativa Windows no acredita por ello una 
+estrategia web de cookie HttpOnly, Secure y SameSite. La limpieza de sesión en el 
+arranque no demuestra token exclusivamente en memoria: el SDK contempla persistencia 
+de sesión. Permanecen pendientes el análisis completo de almacenamiento de 
+credenciales, privacidad de objetos y políticas remotas. Las guardas y límites de tiempo 
+localizados reducen duplicados/esperas, pero no prueban ausencia universal de carga 
+infinita ni cancelación remota. 
+5.10. Pruebas y clasificación de evidencia disponible 
+En esta unidad no se repiten suites históricas, no se invoca IA, no se ejecutan 
+migraciones y no se despliega Supabase. Se documentan resultados existentes con su 
+alcance. La suite Flutter del 08/10/2026 cuenta con log conservado: finaliza con +225 y 
+All tests passed!, bajo Flutter 3.47.7, Dart 3.13.5 y Windows según MEMORY. La 
+inspección de test distingue 24 archivos, 146 declaraciones test y 79 testWidgets; esa 
+clasificación no acredita un snapshot exacto mediante hash, una prueba del commit 
+HEAD ni funcionamiento de servicios reales. 
+Tabla 42 Pruebas, esperado, obtenido, fuente y alcance probatorio 
+Caso / aceptación 
+técnica 
+Esperado 
+Obtenido según fuente y límite 
+Suite 
+Flutter 
+histórica 
+/ 
+regresión 
+Completar suite sin fallo 
+Log flutter-test.log:502–503: +225, All tests 
+passed! (08/10). Resultado agregado histórico; 
+snapshot exacto no acreditado. 
+CU-10 / no avanzar 
+sin respuesta 
+QuizView mantiene pregunta y 
+solicita selección 
+Caso 2 de quiz_module_test.dart; resultado 
+agregado histórico disponible, backend es 
+MockQuizService; no persistencia remota. 
+CU-10 / payload 
+conjunto 
+Finalizar 
+envía 
+cinco 
+QuizAnswerSubmission; 
+resultado recibido 
+Casos de quiz_module_test.dart; mock conserva 
+últimas respuestas; valores 4/5 y 80 % son 
+fixtures, no logro educativo. 
+
+P202
+ 
+ 
+Caso / aceptación 
+técnica 
+Esperado 
+Obtenido según fuente y límite 
+CU-09 / cierre y 
+error 
+Reintentar 
+final 
+abierto; 
+rechazar cierre si agota intentos 
+story_controller_test.dart:638–746; 
+FakeAiService. Suite histórica aprobada, no 
+calidad real del proveedor. 
+Integración 
+de 
+servicio / sesión 
+Encabezado Bearer y errores 
+401/403 coherentes 
+supabase_ai_service_test.dart usa FakeSession y 
+FakeFunctionsClient; 
+no 
+JWT 
+real 
+ni 
+autenticación remota por ese test. 
+Smoke 
+local 
+/ 
+aislamiento 
+Acceso por rol, cuento propio, 
+rechazo ajeno y limpieza 
+docs/semana_8/smoke_test.md:97–115 
+reporta 
+7/7 locales del 07/10; informe histórico sin log 
+original independiente cotejado. No UI–IA–Quiz 
+E2E. 
+CU-09 / generar-
+escena 
+suministrado 
+Contar 
+con 
+una 
+respuesta 
+funcional atribuible 
+Ficha saneada del tesista: escena 4, gemini-3.5-
+flash-lite según log declarado, HTTP 200, 
+execution_time_ms=2402, 
+versión 
+7. 
+Log 
+original no inspeccionado; no prueba propia. 
+Multipart imagen / 
+contrato 
+FormData 
+contiene 
+la 
+referencia correcta y estructura 
+prevista 
+Dos 
+Deno.test 
+en 
+pollinations_multipart_test.ts:5–85; 
+código 
+disponible, 
+resultados 
+de 
+ejecución 
+no 
+disponibles. 
+Seguridad/Quiz 
+local / scripts 
+Verificar roles, contratos y 
+corrección en entorno de prueba 
+test_ai_security.ts y test_quiz_local.ts existen; no 
+resultado disponible en esta unidad. 
+CU centrales / E2E 
+y capturas 
+UI bloquea duplicado, payload 
+correcto, DB registra y cliente 
+recibe respuesta 
+Pendiente: no suite E2E acreditada ni capturas 
+funcionales saneadas disponibles por CU. 
+ 
+El reporte anterior de 134 pruebas y Flutter 3.47.6 de semana 8 es un antecedente 
+distinto: no se mezcla con el resultado de 225. Los tests con mocks verifican reglas 
+locales, estructura y regresión; no acreditan proveedores reales, despliegue remoto, 
+compilación Windows, validez pedagógica ni mejora en comprensión lectora. 
+La ficha docs/evidencia-funcional-generar-escena-20261009.md atribuye al 
+tesista la ejecución de 09/10/2026 02:50:53 GMT, equivalente a 08/10/2026 21:50:53 
+Lima. Se omiten IP, usuarios, sesiones y credenciales. Los 2402 ms son ejecución de la 
+función, no inferencia aislada ni espera total; no acreditan RNF, costo, calidad o resultado 
+educativo. No se atribuye esa ejecución a Gemini 3.8 Flash ni al protocolo de 108 
+
+P203
+ 
+ 
+solicitudes futuras. Gemini 3.8 Flash, GPT-5.6 Sol y Claude Sonnet 5.5, sus pesos 
+25/25/20/20/10 y matrices pendientes permanecen sin modificación y sin ganador. 
+5.11. Balance del avance frente a los criterios 12–20 
+Tabla 43 Balance documental y pendientes de los criterios de implementación 
+Criterio 
+Aporte de esta entrega 
+Pendiente; sin calificación inventada 
+12 Negocio 
+Inventario de respaldo y límites 
+explícitos 
+Validación institucional, denominador y paquete 
+de CU/actividades/secuencia/objetos por proceso. 
+13 CU del sistema 
+Actores, frontera de sistema, 
+matriz 
+de 
+los 
+32 
+RF 
+y 
+especificaciones 
+principales/alternas 
+Traducción respaldada por instrumentos y 
+artefactos completos por todos los CU; sin 
+porcentaje de modelado completo. 
+14 
+Clases, 
+secuencias, estados 
+Análisis/diseño 
+del 
+núcleo, 
+mensajes 
+cronológicos 
+y 
+alt/loop/opt, 
+guardas 
+y 
+heurísticas 
+Cobertura exhaustiva de todos los CU y ciclos de 
+vida; comprobación independiente de UML y 
+legibilidad final. 
+15 Datos 
+Modelo 
+local, 
+PK/FK, 
+restricciones, 
+mapeo 
+y 
+justificación relacional 
+Esquema remoto efectivo, crudos inmutables y 
+metadatos experimentales completos. 
+16 Arquitectura 
+Componentes 
+UML 
+con 
+lollipop/socket, 
+nodos/protocolos configurados 
+y paquetes 
+Topología física y RNF verificados; aislamiento 
+experimental e integridad transaccional no 
+acreditados. 
+17 
+UML 
+transversal 
+Nombres reales y trazabilidad 
+tecnológica del núcleo 
+Cadena completa negocio–VI–VD, instrumentos 
+y detalle suficiente para réplica sin fuente. 
+18 Diseño, código, 
+repositorio 
+Desviaciones 
+explícitas, 
+procedencia y observación de 
+historia local 
+URL 
+definitiva 
+accesible, 
+código 
+vigente 
+publicado, historia original y reconstrucción 
+completa. 
+19 
+Alcance 
+e 
+integración 
+Estados 
+implementado/demo/fallback/p
+endiente; contratos, estado y 
+errores reales 
+PDF 
+final, 
+RF-22/RF-26/RNF-14, 
+wireframes/capturas, errores centralizados y 
+condición web de seguridad. 
+20 Pruebas 
+Log Flutter histórico, tests con 
+dobles, smoke reportado y ficha 
+atribuida 
+Capturas por CU, E2E UI–backend–persistencia, 
+snapshot 
+probado 
+y 
+compatibilidad 
+cliente/servidor etiquetada. 
+ 
+Este balance no asigna notas ni declara aprobación del examen. El avance 
+documenta qué existe y qué falta, sin cerrar otras unidades de corrección. La revisión 
+
+P204
+ 
+ 
+independiente del documento y de los artefactos debe registrarse después de la edición y 
+la comprobación del render; hasta contar con ella no se afirma aprobación del reviewer 
+ni del asesor. 
+REFERENCIAS 
+Alvarez Jara, C. J. (2025). Gamificación como estrategia didáctica para mejorar la 
+comprensión lectora de los estudiantes de una institución educativa Lambayeque 
+2024 [Tesis de maestría, Universidad Católica de Trujillo - Benedicto XVI]. 
+Repositorio Institucional UCT. https://hdl.handle.net/20.500.14520/11430 
+AlZuhair, N. F., & Alkhuzaim, K. M. (2022). The effectiveness of a gamified electronic 
+application in developing reading comprehension abilities among first-grade 
+intermediate students in Saudi Arabia. Education Research International, 2022, 
+7677140. https://doi.org/10.1155/2022/7677140 
+Anthropic. (s. f.-a). Claude Sonnet 5.5. Claude Platform Docs. 
+https://platform.claude.com/docs/en/models/sonnet-5-5/overview 
+Anthropic. (s. f.-b). Structured outputs. Claude Platform Docs. Recuperado el 30 de 
+septiembre de 2026, de https://platform.claude.com/docs/en/build-with-
+claude/structured-outputs 
+Anthropic. (s. f.-c). Pricing. Claude Platform Docs. 
+https://platform.claude.com/docs/en/about-claude/pricing 
+Anthropic. (s. f.-d). What’s new in Claude Sonnet 5.5. Claude Platform Docs. 
+https://platform.claude.com/docs/en/models/sonnet-5-5/whats-new-sonnet-5-
+5#turn-off-up-front-thinking 
+Becerra Ccora, T. A., Piñas Zamudio, M., Pérez Lazo, L., & Enríquez Chauca, A. M. 
+(2023). Nivel de comprensión lectora en los niños de 4 años de la Institución 
+
+P205
+ 
+ 
+Educativa Inicial 531 de Huancavelica, Perú. e-Revista Multidisciplinaria del 
+Saber, 1, e-RMS01092023. https://doi.org/10.61286/e-rms.v1i.18 
+Cattoni, A., Anderle, F., Venuti, P., & Pasqualotto, A. (2024). How to improve reading 
+and writing skills in primary schools: A comparison between gamification and 
+pen-and-paper training. International Journal of Child-Computer Interaction, 39, 
+100633. https://doi.org/10.1016/j.ijcci.2024.100633 
+Congreso de la República del Perú. (2011). Ley N.° 29733, Ley de Protección de Datos 
+Personales. https://www.gob.pe/institucion/congreso-de-la-republica/normas-
+legales/243470-29733 
+Cucumber. (s. f.). Gherkin reference. Recuperado el 30 de septiembre de 2026, de 
+https://cucumber.io/docs/gherkin/reference/ 
+Dart. (s. f.). Dart overview. Recuperado el 30 de septiembre de 2026, de 
+https://dart.dev/overview 
+Dehghanzadeh, H., Farrokhnia, M., Dehghanzadeh, H., Taghipour, K., & Noroozi, O. 
+(2024). Using gamification to support learning in K-12 education: A systematic 
+literature review. British Journal of Educational Technology, 55(1), 34–70. 
+https://doi.org/10.1111/bjet.13335 
+Fernández Cando, D. A., Moreno Contento, C. I., Vallejo Garay, L. E., Martinez 
+Luzuriaga, A. T., & Aguirre Velez, I. de L. (2026). Efecto de la gamificación 
+digital en la comprensión lectora en estudiantes de Educación General Básica: 
+un estudio cuasi-experimental. Prometeo Conocimiento Científico, 6(1), e123. 
+https://doi.org/10.55204/pcc.v6i1.e123 
+Flutter. (s. f.). Desktop support for Flutter. Recuperado el 30 de septiembre de 2026, de 
+https://docs.flutter.dev/platform-integration/desktop 
+
+P206
+ 
+ 
+flutter_tts. (s. f.). flutter_tts: A Flutter plugin for text to speech. pub.dev. Recuperado el 
+30 de septiembre de 2026, de https://pub.dev/packages/flutter_tts 
+García Aguilar, W., Gastello Mathews, W., Rumiche Lachira, G. F., & Chuquihuanga 
+Criollo, N. O. (2025). Efecto de la gamificación en el desarrollo de la 
+comprensión lectora en estudiantes de primaria de una institución educativa 
+pública. Revista Tribunal, 5(10), 86–103. 
+https://doi.org/10.59659/revistatribunal.v5i10.104 
+Google. (2026a). Gemini 3.8 Flash. Google AI for Developers. Recuperado el 30 de 
+septiembre de 2026, de https://ai.google.dev/gemini-api/docs/models/gemini-
+3.8-flash 
+Google. (2026b). Gemini Developer API pricing. Google AI for Developers. 
+Recuperado el 30 de septiembre de 2026, de https://ai.google.dev/gemini-
+api/docs/pricing 
+Hong, Y., Saab, N., & Admiraal, W. (2024). Approaches and game elements used to 
+tailor digital gamification for learning: A systematic literature review. 
+Computers & Education, 212, 105000. 
+https://doi.org/10.1016/j.compedu.2024.105000 
+International Organization for Standardization. (2023). ISO/IEC 25010:2023 Systems 
+and software engineering—Systems and software Quality Requirements and 
+Evaluation (SQuaRE)—Product quality model. 
+https://www.iso.org/standard/78176.html 
+International Organization for Standardization, International Electrotechnical 
+Commission, & Institute of Electrical and Electronics Engineers. (2018). 
+ISO/IEC/IEEE 29148:2018 Systems and software engineering—Life cycle 
+processes—Requirements engineering. https://www.iso.org/standard/72089.html 
+
+P207
+ 
+ 
+Kaban, A. L. (2021). Gamified E-reading experiences and their impact on reading 
+comprehension and attitude in EFL classes. International Journal of Mobile and 
+Blended Learning, 13(3), 71–90. https://doi.org/10.4018/IJMBL.2021070105 
+Kalogiannakis, M., Papadakis, S., & Zourmpakis, A.-I. (2021). Gamification in science 
+education: A systematic review of the literature. Education Sciences, 11(1), 22. 
+https://doi.org/10.3390/educsci11010022 
+Krath, J., Schürmann, L., & von Korflesch, H. F. O. (2021). Revealing the theoretical 
+basis of gamification: A systematic review and analysis of theory in research on 
+gamification, serious games and game-based learning. Computers in Human 
+Behavior, 125, 106963. https://doi.org/10.1016/j.chb.2021.106963 
+Ministerio de Justicia y Derechos Humanos. (2024). Decreto Supremo N.° 016-2024-
+JUS: Reglamento de la Ley N.° 29733, Ley de Protección de Datos Personales. 
+https://www.gob.pe/institucion/smv/normas-legales/6426760-016-2024-jus 
+Mora Velasquez, L. Y. (2024). Aplicación de estrategias de gamificación y su efecto en 
+la comprensión lectora del inglés en estudiantes, institución educativa pública, 
+Ica, 2024 [Tesis de maestría, Universidad César Vallejo]. Repositorio 
+Institucional de la Universidad César Vallejo. 
+https://hdl.handle.net/20.500.12692/155726 
+OpenAI. (s. f.-a). GPT-5.6 Sol. OpenAI API. 
+https://developers.openai.com/api/docs/models/gpt-5.6-sol.md 
+OpenAI. (s. f.-b). GPT-5.6. OpenAI API. 
+https://developers.openai.com/api/docs/guides/latest-model/gpt-5.6.md 
+OpenAI. (s. f.-c). Pricing. OpenAI API. 
+https://developers.openai.com/api/docs/pricing.md 
+
+P208
+ 
+ 
+Organización para la Cooperación y el Desarrollo Económicos. (2023). PISA 2022 
+Results (Volume I and II): Country notes—Peru. OECD Publishing. 
+https://www.oecd.org/en/publications/pisa-2022-results-volume-i-and-ii-
+country-notes_ed6fbcc5-en/peru_3e71791c-en.html 
+Pollinations.AI. (s. f.). Image generation. Pollinations.AI GitHub Repository. 
+Recuperado el 30 de septiembre de 2026, de 
+https://github.com/pollinations/pollinations/blob/main/gen.pollinations.ai/src/doc
+s/image-generation.md 
+PostgreSQL Global Development Group. (s. f.). 5.5. Constraints. PostgreSQL 
+Documentation. Recuperado el 30 de septiembre de 2026, de 
+https://www.postgresql.org/docs/current/ddl-constraints.html 
+Ramos Casavilca, C. (2022). La gamificación y la comprensión lectora en estudiantes 
+de segundo grado en una institución educativa de Huancavelica, 2022 [Tesis de 
+maestría, Universidad César Vallejo]. Repositorio Institucional de la 
+Universidad César Vallejo. https://hdl.handle.net/20.500.12692/102552 
+Romero-Rodríguez, J.-M., Martínez-Menéndez, A., Alonso-García, S., & Victoria-
+Maldonado, J.-J. (2024). The reality of the gamification methodology in Primary 
+Education: A systematic review. International Journal of Educational Research, 
+128, 102481. https://doi.org/10.1016/j.ijer.2024.102481 
+Santos Lescano, A. J. (2023). Implementación de un sistema web basado en 
+gamificación para mejorar la comprensión lectora de niños de educación 
+primaria en los colegios públicos de Lima [Tesis de pregrado, Universidad 
+Nacional Mayor de San Marcos]. Repositorio institucional Cybertesis UNMSM. 
+https://hdl.handle.net/20.500.12672/20471 
+
+P209
+ 
+ 
+Shao, J., Abdul Rabu, S. N., & Chen, C. (2025). The impact of gamified interactive e-
+books incorporating metacognitive reading strategies on Chinese elementary 
+students’ mathematical reading comprehension, word problem-solving 
+performance, and general reading motivation. Education and Information 
+Technologies, 30, 22893–22929. https://doi.org/10.1007/s10639-025-13660-z 
+Supabase. (s. f.-a). Database. Supabase Docs. Recuperado el 30 de septiembre de 2026, 
+de https://supabase.com/docs/guides/database/overview 
+Supabase. (s. f.-b). Row Level Security. Supabase Docs. Recuperado el 30 de 
+septiembre de 2026, de https://supabase.com/docs/guides/database/postgres/row-
+level-security 
+Supabase. (s. f.-c). Storage. Supabase Docs. Recuperado el 30 de septiembre de 2026, 
+de https://supabase.com/docs/guides/storage 
+Supabase. (s. f.-d). Storage access control. Supabase Docs. Recuperado el 30 de 
+septiembre de 2026, de 
+https://supabase.com/docs/guides/storage/security/access-control 
+Superintendencia Nacional de Aduanas y de Administración Tributaria. (s. f.). Consulta 
+RUC. Recuperado el 30 de septiembre de 2026, de https://e-
+consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/FrameCriterioBusquedaWeb.jsp 
+Unidad de Gestión Educativa Local N.° 05. (2024, 20 de mayo). Oficio múltiple N.° 
+113-2024-MINEDU/VMGI-DRELM-UGEL05-ASGESE-ESIE: Requerimiento 
+de reporte obligatorio del PM 138 - Autorreporte de Condiciones Básicas de I.E. 
+Privadas 2024, en la Plataforma SIMON. 
+https://www.gob.pe/institucion/ugel05/informes-publicaciones/tipos/353-oficio-
+multiple 
+
+P210
+ 
+ 
+UNESCO. (2023). Guidance for generative AI in education and research. 
+https://www.unesco.org/en/articles/guidance-generative-ai-education-and-
+research 
+Wake, B. (2003, 17 de agosto). INVEST in good stories, and SMART tasks. XP123. 
+https://xp123.com/invest-in-good-stories-and-smart-tasks/ 
+Yusri, A. A., & Zainal, M. Z. (2025). Unleashing gamification: A systematic review in 
+primary schools. Journal of Education and Learning (EduLearn), 19(4), 2313–
+2321. https://doi.org/10.11591/edulearn.v19i4.22009 
+Zapata Bromley, L. A. F., & Carrión-Barco, G. (2021). Comprensión lectora en los 
+niveles literal, inferencial y crítico reflexivo de los estudiantes de educación 
+primaria. Revista de Investigación, Formación y Desarrollo: Generando 
+Productividad Institucional, 9(2), 6–16. https://doi.org/10.34070/rif.v9i2.266 
+Zeybek, N., & Saygı, E. (2024). Gamification in education: Why, where, when, and 
+how?—A systematic review. Games and Culture, 19(2), 237–264. 
+https://doi.org/10.1177/15554120231158625 

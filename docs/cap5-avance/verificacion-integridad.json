@@ -1,0 +1,1097 @@
+{
+  "fuente_sha256": "89d06373398c6afdd2f6c848383f8685ee59d1b18f45ab5a62d8ee06c6ecee80",
+  "copia_sha256": "011399a5c4d782dc48149568e96c0556d4e03c9263b804a9625de2f248049e80",
+  "miembros_previos_modificados": [
+    "word/document.xml",
+    "word/_rels/document.xml.rels"
+  ],
+  "miembros_nuevos": [
+    "word/media/cap5-06-casos-uso.png",
+    "word/media/cap5-07-clases-analisis.png",
+    "word/media/cap5-08-clases-diseno.png",
+    "word/media/cap5-08b-clases-quiz.png",
+    "word/media/cap5-09-secuencia-creacion.png",
+    "word/media/cap5-09b-secuencia-pdf.png",
+    "word/media/cap5-10-secuencia-continuacion.png",
+    "word/media/cap5-11-secuencia-quiz.png",
+    "word/media/cap5-11b-secuencia-envio-quiz.png",
+    "word/media/cap5-12-estados-experiencia.png",
+    "word/media/cap5-12b-estados-story.png",
+    "word/media/cap5-13-estados-quiz-imagen.png",
+    "word/media/cap5-13b-estados-imagen.png",
+    "word/media/cap5-14-estados-narracion.png",
+    "word/media/cap5-15-datos.png",
+    "word/media/cap5-15b-datos-quiz.png",
+    "word/media/cap5-16-componentes.png",
+    "word/media/cap5-17-despliegue.png",
+    "word/media/cap5-18-paquetes.png"
+  ],
+  "bloques_previos_comparados": 1072,
+  "diferencias_fuera_alcance": [],
+  "excepciones": "Índices, bookmarks _Toc asociados y pgNumType de la sección final para continuidad; adición exclusiva del capítulo V y recursos nuevos.",
+  "tablas_previas_preservadas": 32,
+  "figuras_previas_preservadas": 5,
+  "tablas_totales": 43,
+  "pagerefs_verificados": 167,
+  "pagerefs": [
+    {
+      "anchor": "_Toc242460588",
+      "indice": "2",
+      "pagina_word": 2,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460589",
+      "indice": "6",
+      "pagina_word": 6,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460590",
+      "indice": "9",
+      "pagina_word": 9,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460591",
+      "indice": "10",
+      "pagina_word": 10,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460592",
+      "indice": "11",
+      "pagina_word": 11,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460593",
+      "indice": "12",
+      "pagina_word": 12,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460594",
+      "indice": "12",
+      "pagina_word": 12,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460595",
+      "indice": "14",
+      "pagina_word": 14,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460596",
+      "indice": "18",
+      "pagina_word": 18,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460597",
+      "indice": "18",
+      "pagina_word": 18,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460598",
+      "indice": "18",
+      "pagina_word": 18,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460599",
+      "indice": "19",
+      "pagina_word": 19,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460600",
+      "indice": "19",
+      "pagina_word": 19,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460601",
+      "indice": "21",
+      "pagina_word": 21,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460602",
+      "indice": "21",
+      "pagina_word": 21,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460603",
+      "indice": "26",
+      "pagina_word": 26,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460604",
+      "indice": "26",
+      "pagina_word": 26,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460605",
+      "indice": "26",
+      "pagina_word": 26,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460606",
+      "indice": "27",
+      "pagina_word": 27,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460607",
+      "indice": "27",
+      "pagina_word": 27,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460608",
+      "indice": "27",
+      "pagina_word": 27,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460609",
+      "indice": "28",
+      "pagina_word": 28,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460610",
+      "indice": "28",
+      "pagina_word": 28,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460611",
+      "indice": "30",
+      "pagina_word": 30,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460612",
+      "indice": "32",
+      "pagina_word": 32,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460613",
+      "indice": "32",
+      "pagina_word": 32,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460614",
+      "indice": "33",
+      "pagina_word": 33,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460615",
+      "indice": "35",
+      "pagina_word": 35,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460616",
+      "indice": "40",
+      "pagina_word": 40,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460617",
+      "indice": "40",
+      "pagina_word": 40,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460618",
+      "indice": "41",
+      "pagina_word": 41,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460619",
+      "indice": "43",
+      "pagina_word": 43,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460620",
+      "indice": "44",
+      "pagina_word": 44,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460621",
+      "indice": "45",
+      "pagina_word": 45,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460622",
+      "indice": "45",
+      "pagina_word": 45,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460623",
+      "indice": "45",
+      "pagina_word": 45,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460624",
+      "indice": "51",
+      "pagina_word": 51,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460625",
+      "indice": "56",
+      "pagina_word": 56,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460626",
+      "indice": "56",
+      "pagina_word": 56,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460627",
+      "indice": "60",
+      "pagina_word": 60,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460628",
+      "indice": "65",
+      "pagina_word": 65,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460629",
+      "indice": "67",
+      "pagina_word": 67,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460630",
+      "indice": "72",
+      "pagina_word": 72,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460631",
+      "indice": "80",
+      "pagina_word": 80,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460632",
+      "indice": "84",
+      "pagina_word": 84,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460633",
+      "indice": "87",
+      "pagina_word": 87,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460634",
+      "indice": "87",
+      "pagina_word": 87,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460635",
+      "indice": "92",
+      "pagina_word": 92,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460636",
+      "indice": "101",
+      "pagina_word": 101,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460637",
+      "indice": "102",
+      "pagina_word": 102,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460638",
+      "indice": "103",
+      "pagina_word": 103,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460639",
+      "indice": "103",
+      "pagina_word": 103,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460640",
+      "indice": "104",
+      "pagina_word": 104,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460641",
+      "indice": "106",
+      "pagina_word": 106,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460642",
+      "indice": "107",
+      "pagina_word": 107,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460643",
+      "indice": "110",
+      "pagina_word": 110,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460644",
+      "indice": "111",
+      "pagina_word": 111,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460645",
+      "indice": "112",
+      "pagina_word": 112,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460646",
+      "indice": "114",
+      "pagina_word": 114,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460647",
+      "indice": "117",
+      "pagina_word": 117,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460648",
+      "indice": "118",
+      "pagina_word": 118,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460649",
+      "indice": "119",
+      "pagina_word": 119,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460650",
+      "indice": "119",
+      "pagina_word": 119,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460651",
+      "indice": "120",
+      "pagina_word": 120,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460652",
+      "indice": "121",
+      "pagina_word": 121,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460653",
+      "indice": "121",
+      "pagina_word": 121,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460654",
+      "indice": "123",
+      "pagina_word": 123,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460655",
+      "indice": "124",
+      "pagina_word": 124,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460656",
+      "indice": "124",
+      "pagina_word": 124,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460657",
+      "indice": "127",
+      "pagina_word": 127,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460658",
+      "indice": "132",
+      "pagina_word": 132,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460659",
+      "indice": "135",
+      "pagina_word": 135,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460660",
+      "indice": "135",
+      "pagina_word": 135,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460661",
+      "indice": "135",
+      "pagina_word": 135,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460662",
+      "indice": "136",
+      "pagina_word": 136,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460663",
+      "indice": "136",
+      "pagina_word": 136,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460664",
+      "indice": "137",
+      "pagina_word": 137,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460665",
+      "indice": "138",
+      "pagina_word": 138,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460666",
+      "indice": "138",
+      "pagina_word": 138,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460667",
+      "indice": "139",
+      "pagina_word": 139,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460668",
+      "indice": "140",
+      "pagina_word": 140,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460669",
+      "indice": "140",
+      "pagina_word": 140,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460670",
+      "indice": "141",
+      "pagina_word": 141,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460671",
+      "indice": "141",
+      "pagina_word": 141,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460672",
+      "indice": "142",
+      "pagina_word": 142,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460673",
+      "indice": "143",
+      "pagina_word": 143,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460674",
+      "indice": "143",
+      "pagina_word": 143,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460675",
+      "indice": "144",
+      "pagina_word": 144,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460676",
+      "indice": "145",
+      "pagina_word": 145,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460677",
+      "indice": "145",
+      "pagina_word": 145,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460678",
+      "indice": "148",
+      "pagina_word": 148,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460679",
+      "indice": "162",
+      "pagina_word": 162,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460680",
+      "indice": "163",
+      "pagina_word": 163,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460681",
+      "indice": "166",
+      "pagina_word": 166,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460682",
+      "indice": "166",
+      "pagina_word": 166,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460683",
+      "indice": "168",
+      "pagina_word": 168,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460684",
+      "indice": "168",
+      "pagina_word": 168,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460685",
+      "indice": "174",
+      "pagina_word": 174,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460686",
+      "indice": "191",
+      "pagina_word": 191,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460687",
+      "indice": "195",
+      "pagina_word": 195,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460688",
+      "indice": "200",
+      "pagina_word": 200,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460689",
+      "indice": "201",
+      "pagina_word": 201,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460690",
+      "indice": "202",
+      "pagina_word": 202,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460691",
+      "indice": "204",
+      "pagina_word": 204,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460692",
+      "indice": "206",
+      "pagina_word": 206,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460693",
+      "indice": "207",
+      "pagina_word": 207,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460694",
+      "indice": "20",
+      "pagina_word": 20,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460695",
+      "indice": "36",
+      "pagina_word": 36,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460696",
+      "indice": "36",
+      "pagina_word": 36,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460697",
+      "indice": "38",
+      "pagina_word": 38,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460698",
+      "indice": "39",
+      "pagina_word": 39,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460699",
+      "indice": "50",
+      "pagina_word": 50,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460700",
+      "indice": "55",
+      "pagina_word": 55,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460701",
+      "indice": "65",
+      "pagina_word": 65,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460702",
+      "indice": "66",
+      "pagina_word": 66,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460703",
+      "indice": "79",
+      "pagina_word": 79,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460704",
+      "indice": "104",
+      "pagina_word": 104,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460705",
+      "indice": "105",
+      "pagina_word": 105,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460706",
+      "indice": "106",
+      "pagina_word": 106,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460707",
+      "indice": "107",
+      "pagina_word": 107,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460708",
+      "indice": "108",
+      "pagina_word": 108,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460709",
+      "indice": "108",
+      "pagina_word": 108,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460710",
+      "indice": "109",
+      "pagina_word": 109,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460711",
+      "indice": "110",
+      "pagina_word": 110,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460712",
+      "indice": "111",
+      "pagina_word": 111,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460713",
+      "indice": "111",
+      "pagina_word": 111,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460714",
+      "indice": "114",
+      "pagina_word": 114,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460715",
+      "indice": "116",
+      "pagina_word": 116,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460716",
+      "indice": "118",
+      "pagina_word": 118,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460717",
+      "indice": "119",
+      "pagina_word": 119,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460718",
+      "indice": "120",
+      "pagina_word": 120,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460719",
+      "indice": "120",
+      "pagina_word": 120,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460720",
+      "indice": "121",
+      "pagina_word": 121,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460721",
+      "indice": "123",
+      "pagina_word": 123,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460722",
+      "indice": "124",
+      "pagina_word": 124,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460723",
+      "indice": "127",
+      "pagina_word": 127,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460724",
+      "indice": "146",
+      "pagina_word": 146,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460725",
+      "indice": "149",
+      "pagina_word": 149,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460726",
+      "indice": "166",
+      "pagina_word": 166,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460727",
+      "indice": "168",
+      "pagina_word": 168,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460728",
+      "indice": "171",
+      "pagina_word": 171,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460729",
+      "indice": "172",
+      "pagina_word": 172,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460730",
+      "indice": "178",
+      "pagina_word": 178,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460731",
+      "indice": "194",
+      "pagina_word": 194,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460732",
+      "indice": "200",
+      "pagina_word": 200,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460733",
+      "indice": "201",
+      "pagina_word": 201,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460734",
+      "indice": "203",
+      "pagina_word": 203,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460735",
+      "indice": "204",
+      "pagina_word": 204,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460736",
+      "indice": "206",
+      "pagina_word": 206,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460737",
+      "indice": "21",
+      "pagina_word": 21,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460738",
+      "indice": "59",
+      "pagina_word": 59,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460739",
+      "indice": "92",
+      "pagina_word": 92,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460740",
+      "indice": "101",
+      "pagina_word": 101,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460741",
+      "indice": "118",
+      "pagina_word": 118,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460742",
+      "indice": "170",
+      "pagina_word": 170,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460743",
+      "indice": "175",
+      "pagina_word": 175,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460744",
+      "indice": "176",
+      "pagina_word": 176,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460745",
+      "indice": "179",
+      "pagina_word": 179,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460746",
+      "indice": "181",
+      "pagina_word": 181,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460747",
+      "indice": "183",
+      "pagina_word": 183,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460748",
+      "indice": "186",
+      "pagina_word": 186,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460749",
+      "indice": "188",
+      "pagina_word": 188,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460750",
+      "indice": "190",
+      "pagina_word": 190,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460751",
+      "indice": "192",
+      "pagina_word": 192,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460752",
+      "indice": "196",
+      "pagina_word": 196,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460753",
+      "indice": "197",
+      "pagina_word": 197,
+      "coincide": true
+    },
+    {
+      "anchor": "_Toc242460754",
+      "indice": "199",
+      "pagina_word": 199,
+      "coincide": true
+    }
+  ],
+  "errores_render_indices": [],
+  "paginas_detalle_generadas": [
+    6,
+    8,
+    9,
+    21,
+    59,
+    92,
+    101,
+    112,
+    118,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208
+  ],
+  "revisor_independiente": "PENDIENTE; este script es verificación del editor"
+}

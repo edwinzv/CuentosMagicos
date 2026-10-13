@@ -1,0 +1,26 @@
+@startuml
+skinparam defaultFontName Arial
+skinparam defaultFontSize 18
+skinparam shadowing false
+state "_HomeRouterState.AppScreen\nproyección de navegación" as Router {
+ [*] --> home
+ home --> drawing : onDibujar / _dibujoDesdePdf=false
+ home --> document : onUsarPdf
+ document --> characterCustomization : _procesarPdf [datos válidos]
+ characterCustomization --> drawing : [modo dibujo] / fijar nombre
+ drawing --> story : _alFinalizarDibujo [cuento creado]
+ characterCustomization --> story : [automático; cuento creado]
+ story --> quiz : onIrEvaluacion / intentar guardar
+ quiz --> home : onVolver u onFinalizado / tab=1
+ story --> home : onSalir
+ document --> home : volver [!_procesandoPdf]
+ characterCustomization --> document : onVolver
+ home --> story : onAbrirCuento / modoHistorico=true
+ home --> quiz : onVerResultado
+}
+legend bottom
+Panel (a): navegación. AuthGate precede al flujo.
+No regiones concurrentes inventadas.
+Guardar antes del Quiz puede fallar sin impedir navegación.
+endlegend
+@enduml
